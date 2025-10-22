@@ -106,7 +106,7 @@ def main(my_pceParams):
     
     # 5. Compute_Stats (Compute mu and sigma)
     print("5. Computing PCE-based Statistical Moments...")
-    pce_model.norm_fit(plot='n') # Set 'y' to plot PDF
+    pce_model.norm_fit()
     
     # 6. Validate_PCE (Optional)
     print("6. Validating PCE Model...")
