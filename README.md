@@ -1,6 +1,9 @@
 # 🌟 Project Structure
 ```
 ├── code_files            # Code for Polynomial Chaos Expansion
+    ├── pce_core.py         # PolyChaos Class
+    ├── pce_utils.py        # Helper Functions
+    └── run_analysis.py     # User Model, Parameters, and Execution
 └── results
     ├── csvFiles          # Roughness statistics and PySR searching results
     └── loss_plot         # Symbolic model loss visualization
