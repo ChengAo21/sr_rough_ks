@@ -1,6 +1,6 @@
 # 🌟 Polynomial Chaos Expansion (PCE) Framework for Uncertainty Quantification
 
-This repository outlines the core mathematical formulations and algorithmic steps for implementing a **Polynomial Chaos Expansion (PCE)** framework, a powerful technique for uncertainty quantification and sensitivity analysis.
+This repository outlines the core mathematical formulations and algorithmic steps for implementing a **Polynomial Chaos Expansion (PCE)** , a powerful technique for uncertainty quantification and sensitivity analysis.
 
 The framework utilizes a multi-dimensional vector of random variables, $\boldsymbol{\xi} = (\xi_1, \xi_2, \dots, \xi_D)$, where $D$ is the number of input variables.
 
