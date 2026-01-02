@@ -37,6 +37,6 @@ Core steps for applying PCE to build a surrogate model, quantify uncertainty, an
 
 ```
 
-# 📖 Research Paper
+# 📖 Physical Interpretability of Model
 ## Visualization of the sub-functions and their pairwise interactions
 ![schematic](ResponseSurface.png)
