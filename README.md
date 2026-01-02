@@ -1,9 +1,9 @@
 # 📖 Research Paper
-Schematic of the 32 samples of rough surfaces in the x−z plane
+## Schematic of the 32 samples of rough surfaces in the x−z plane
 ![schematic](RoughSurface.png) 
 
-Visualization of the sub-functions and their pairwise interactions
-![schematic](ResponseSruface.png)
+## Visualization of the sub-functions and their pairwise interactions
+![schematic](ResponseSurface.png)
 
 # 🌟 Project Structure
 ```
@@ -13,6 +13,8 @@ Visualization of the sub-functions and their pairwise interactions
     └── run_analysis.py     # User Model, Parameters, and Execution
 └── results
     ├── csvFiles          # Roughness statistics and PySR searching results
+    ├── SR_train          # Symbolic training configurations
+    ├── subFunc_plot      # Visualization of the sub-functions
     └── loss_plot         # Symbolic model loss visualization
 ```
 
