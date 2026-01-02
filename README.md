@@ -1,6 +1,6 @@
 # 📖 Research Paper
-![schematic](RoughSurface.png)
-![schematic](ResponseSruface.png)
+| :---: | :---: |
+| ![schematic](RoughSurface.png) | ![schematic](ResponseSruface.png) |
 
 # 🌟 Project Structure
 ```
