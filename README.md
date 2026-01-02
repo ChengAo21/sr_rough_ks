@@ -1,6 +1,9 @@
 # 📖 Research Paper
-| :---: | :---: |
-| ![schematic](RoughSurface.png) | ![schematic](ResponseSruface.png) |
+Schematic of the 32 samples of rough surfaces in the x−z plane
+![schematic](RoughSurface.png) 
+
+Visualization of the sub-functions and their pairwise interactions
+![schematic](ResponseSruface.png)
 
 # 🌟 Project Structure
 ```
