@@ -1,3 +1,7 @@
+# 📖 Research Paper
+![schematic](RoughSurface.png)
+![schematic](ResponseSruface.png)
+
 # 🌟 Project Structure
 ```
 ├── code_files            # Code for Polynomial Chaos Expansion
