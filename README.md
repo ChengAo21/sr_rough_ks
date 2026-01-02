@@ -1,10 +1,3 @@
-# 📖 Research Paper
-## Schematic of the 32 samples of rough surfaces in the x−z plane
-![schematic](RoughSurface.png) 
-
-## Visualization of the sub-functions and their pairwise interactions
-![schematic](ResponseSurface.png)
-
 # 🌟 Project Structure
 ```
 ├── code_files            # Code for Polynomial Chaos Expansion
@@ -43,3 +36,7 @@ Core steps for applying PCE to build a surrogate model, quantify uncertainty, an
 │       └── Sensitivity      # Compute Sobol sensitivity indices
 
 ```
+
+# 📖 Research Paper
+## Visualization of the sub-functions and their pairwise interactions
+![schematic](ResponseSurface.png)
