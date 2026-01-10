@@ -7,7 +7,6 @@ If you find this repository useful, please consider giving a star ⭐ and cite o
 @article{cheng2026drag,
   title={A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression},
   author={Cheng, Ao and Zhou, Zhideng and Yang, Xiaolei and He, Guo-Wei},
-  journal={arXiv preprint arXiv:2508.20729},
   journal={Journal of Fluids Engineering},
   pages={1-44},
   year={2026},
