@@ -1,7 +1,21 @@
 ## 📚 Project Overview & Corresponding Publication
-This repository contains the source code and results for the research work presented in our published article: "A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression" (Journal of Fluids Engineering, 2026). 
-The work addresses the long-standing challenge of predicting rough surface drag in fluid dynamics by proposing an interpretable, portable, and generalizable drag model via feature importance analysis and symbolic regression. The model outperforms traditional empirical correlations across diverse roughness types and demonstrates robust extrapolation capability.
-For full details, please refer to our article: [![Doi](https://img.shields.io/badge/10.1115/1.4070838-blue.svg)](https://doi.org/10.1115/1.4070838)
+This repository contains the source code and results for the research work presented in our published article: "A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression" (Journal of Fluids Engineering, 2026).
+
+For full details, please refer to our article: [![DOI](https://img.shields.io/badge/DOI-10.1115%2F1.4070838-blue.svg)](https://doi.org/10.1115/1.4070838)
+
+If you find this repository useful, please consider giving a star ⭐ and cite our paper.
+```
+@article{cheng2026drag,
+  title={A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression},
+  author={Cheng, Ao and Zhou, Zhideng and Yang, Xiaolei and He, Guo-Wei},
+  journal={arXiv preprint arXiv:2508.20729},
+  journal={Journal of Fluids Engineering},
+  pages={1-44},
+  year={2026},
+  month={01},
+  doi={10.1115/1.4070838},
+}
+```
 
 ## 🌟 Project Structure
 ```
