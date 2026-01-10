@@ -1,4 +1,9 @@
-# 🌟 Project Structure
+## 📚 Project Overview & Corresponding Publication
+This repository contains the source code and results for the research work presented in our published article: "A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression" (Journal of Fluids Engineering, 2026). 
+The work addresses the long-standing challenge of predicting rough surface drag in fluid dynamics by proposing an interpretable, portable, and generalizable drag model via feature importance analysis and symbolic regression. The model outperforms traditional empirical correlations across diverse roughness types and demonstrates robust extrapolation capability.
+For full details, please refer to our article: [![Doi](https://img.shields.io/badge/10.1115/1.4070838-blue.svg)](https://doi.org/10.1115/1.4070838)
+
+## 🌟 Project Structure
 ```
 ├── code_files            # Code for Polynomial Chaos Expansion
     ├── pce_core.py         # PolyChaos Class
@@ -11,7 +16,7 @@
     └── loss_plot         # Symbolic model loss visualization
 ```
 
-# 🚀 Polynomial Chaos Expansion (PCE)
+## 🚀 Polynomial Chaos Expansion (PCE)
 Core steps for applying PCE to build a surrogate model, quantify uncertainty, and perform global sensitivity analysis are summarized below.
 ```
 ├── PCE_Implementation       
