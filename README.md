@@ -1,6 +1,5 @@
 ## 📚 Project Overview & Corresponding Publication
 This repository contains the source code and results for the research work presented in our published article: "A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression" (Journal of Fluids Engineering, 2026).
-
 For full details, please refer to our article: [![DOI](https://img.shields.io/badge/DOI-10.1115%2F1.4070838-blue.svg)](https://doi.org/10.1115/1.4070838)
 
 If you find this repository useful, please consider giving a star ⭐ and cite our paper.
@@ -56,6 +55,6 @@ Core steps for applying PCE to build a surrogate model, quantify uncertainty, an
 
 ```
 
-# 📖 Physical Interpretability of Model
-## Visualization of the sub-functions and their pairwise interactions
+## 📖 Physical Interpretability of Model
+### Visualization of the sub-functions and their pairwise interactions
 ![schematic](ResponseSurface.png)
