@@ -2,6 +2,8 @@
 This repository contains the source code and results for the research work presented in our published article: "A Drag Model for Rough Surfaces Learned Using Feature Importance-informed Symbolic Regression" (Journal of Fluids Engineering, 2026).
 For full details, please refer to our article: [![DOI](https://img.shields.io/badge/DOI-10.1115%2F1.4070838-blue.svg)](https://doi.org/10.1115/1.4070838)
 
+Detailed mathematical principles and formula derivations of the PCE can be found in Section 4.4 and Appendix C of our article.
+
 If you find this repository useful, please consider giving a star ⭐ and cite our paper.
 ```
 @article{cheng2026drag,
