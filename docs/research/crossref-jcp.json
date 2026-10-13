@@ -1,0 +1,1267 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          9
+        ]
+      ],
+      "date-time": "2026-09-09T03:49:52Z",
+      "timestamp": 1788925792754,
+      "version": "build-2803163510"
+    },
+    "reference-count": 83,
+    "publisher": "Elsevier BV",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://www.elsevier.com/legal/tdmrep-license"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-017"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-037"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-012"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-029"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2026-12-01T00:00:00Z",
+          "timestamp": 1796083200000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-004"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100002367",
+        "name": "Chinese Academy of Sciences",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "XDB0620102"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "XDB0620102"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100002367",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100002367",
+        "name": "Chinese Academy of Sciences",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "YSBR-087"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "YSBR-087"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100002367",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "National Natural Science Foundation of China",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "12588201"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "12588201"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "National Natural Science Foundation of China",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "12172360"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "12172360"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "elsevier.com",
+        "sciencedirect.com"
+      ],
+      "crossmark-restriction": true
+    },
+    "short-container-title": [
+      "Journal of Computational Physics"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          12
+        ]
+      ]
+    },
+    "DOI": "10.1016/j.jcp.2026.115311",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2026,
+          8,
+          19
+        ]
+      ],
+      "date-time": "2026-08-19T15:56:19Z",
+      "timestamp": 1787154979000
+    },
+    "page": "115311",
+    "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 1,
+    "special_numbering": "C",
+    "title": [
+      "A physics-embedded symbolic wall model for large-eddy simulation of separated flows"
+    ],
+    "prefix": "10.1016",
+    "volume": "567",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0001-6759-2595",
+        "authenticated-orcid": false,
+        "given": "Ao",
+        "family": "Cheng",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-2281-3363",
+        "authenticated-orcid": false,
+        "given": "Xin-Lei",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7505-5626",
+        "authenticated-orcid": false,
+        "given": "Zhideng",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2606-0672",
+        "authenticated-orcid": false,
+        "given": "Xiaolei",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4738-0816",
+        "authenticated-orcid": false,
+        "given": "Guowei",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "78",
+    "reference": [
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0001",
+        "doi-asserted-by": "crossref",
+        "first-page": "349",
+        "DOI": "10.1146/annurev.fluid.34.082901.144919",
+        "article-title": "Wall-layer models for large-eddy simulations",
+        "volume": "34",
+        "author": "Piomelli",
+        "year": "2002",
+        "journal-title": "Annu. Rev. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0002",
+        "doi-asserted-by": "crossref",
+        "first-page": "535",
+        "DOI": "10.1146/annurev-fluid-122316-045241",
+        "article-title": "Wall-modeled large-eddy simulation for complex turbulent flows",
+        "volume": "50",
+        "author": "Bose",
+        "year": "2018",
+        "journal-title": "Annu. Rev. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0003",
+        "doi-asserted-by": "crossref",
+        "first-page": "453",
+        "DOI": "10.1017/S0022112070000691",
+        "article-title": "A numerical study of three-dimensional turbulent channel flow at large Reynolds numbers",
+        "volume": "41",
+        "author": "Deardorff",
+        "year": "1970",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0004",
+        "series-title": "8th Symposium on Turbulent Shear Flows",
+        "article-title": "Large-eddy simulation of turbulent flow over and around a cube in a plate channel",
+        "author": "Werner",
+        "year": "1993"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0005",
+        "doi-asserted-by": "crossref",
+        "first-page": "817",
+        "DOI": "10.1016/j.compfluid.2006.09.001",
+        "article-title": "Development of wall models for les of separated flows using statistical evaluations",
+        "volume": "36",
+        "author": "Breuer",
+        "year": "2007",
+        "journal-title": "Comput. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0006",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1063/1.3529358",
+        "article-title": "A wall-layer model for large-eddy simulations of turbulent flows with/out pressure gradient",
+        "volume": "23",
+        "author": "Duprat",
+        "year": "2011",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0007",
+        "doi-asserted-by": "crossref",
+        "first-page": "257",
+        "DOI": "10.1017/jfm.2016.250",
+        "article-title": "Highly resolved experimental results of the separated flow in a channel with streamwise periodic constrictions",
+        "volume": "796",
+        "author": "Kähler",
+        "year": "2016",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0008",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2024.1127",
+        "article-title": "A wall model for separated flows: embedded learning to improve a posteriori performance",
+        "volume": "1002",
+        "author": "Zhou",
+        "year": "2025",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0009",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.4.034602",
+        "article-title": "Predictive large-eddy-simulation wall modeling via physics-informed neural networks",
+        "volume": "4",
+        "author": "Yang",
+        "year": "2019",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0010",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1063/1.5129178",
+        "article-title": "Wall-modeled large-eddy simulations of spanwise rotating turbulent channels-Comparing a physics-based approach and a data-based approach",
+        "volume": "31",
+        "author": "Huang",
+        "year": "2019",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0011",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.ast.2022.108014",
+        "article-title": "Artificial neural network-based wall-modeled large-eddy simulations of turbulent channel and separated boundary layer flows",
+        "volume": "132",
+        "author": "Lee",
+        "year": "2023",
+        "journal-title": "Aerosp. Sci. Technol."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0012",
+        "doi-asserted-by": "crossref",
+        "first-page": "L73",
+        "DOI": "10.1063/1.1516779",
+        "article-title": "Contribution of Reynolds stress distribution to the skin friction in wall-bounded flows",
+        "volume": "14",
+        "author": "Fukagata",
+        "year": "2002",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0013",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1063/5.0072550",
+        "article-title": "Data-driven model for improving wall-modeled large-eddy simulation of supersonic turbulent flows with separation",
+        "volume": "33",
+        "author": "Zangeneh",
+        "year": "2021",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0014",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.jcp.2023.112173",
+        "article-title": "Data-driven wall modeling for turbulent separated flows",
+        "volume": "487",
+        "author": "Dupuy",
+        "year": "2023",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0015",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.6.054610",
+        "article-title": "Wall model based on neural networks for LES of turbulent flows over periodic hills",
+        "volume": "6",
+        "author": "Zhou",
+        "year": "2021",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0016",
+        "article-title": "A wall model learned from the periodic hill data and the law of the wall",
+        "volume": "35",
+        "author": "Zhou",
+        "year": "2023",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0017",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.6.050504",
+        "article-title": "Perspectives on machine learning-augmented Reynolds-averaged and large eddy simulation models of turbulence",
+        "volume": "6",
+        "author": "Duraisamy",
+        "year": "2021",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "issue": "1",
+        "key": "10.1016/j.jcp.2026.115311_bib0018",
+        "doi-asserted-by": "crossref",
+        "first-page": "1",
+        "DOI": "10.1038/s41467-022-28957-7",
+        "article-title": "Scientific multi-agent reinforcement learning for wall-models of turbulent flows",
+        "volume": "13",
+        "author": "Bae",
+        "year": "2022",
+        "journal-title": "Nat. Commun."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0019",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2023.331",
+        "article-title": "Machine learning building-block-flow wall model for large-eddy simulation",
+        "volume": "963",
+        "author": "Lozano-Durán",
+        "year": "2023",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0020",
+        "unstructured": "A. Lozano-Durán, H.J. Bae, Self-critical machine-learning wall-modeled LES for external aerodynamics (2020). arXiv: 2012.10005v1."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0021",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2020.512",
+        "article-title": "Large-eddy simulations of turbulent flow in a channel with streamwise periodic constrictions",
+        "volume": "900",
+        "author": "Gao",
+        "year": "2020",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0022",
+        "doi-asserted-by": "crossref",
+        "first-page": "2",
+        "DOI": "10.1007/s10462-023-10622-0",
+        "article-title": "Interpretable scientific discovery with symbolic regression: a review",
+        "volume": "57",
+        "author": "Makke",
+        "year": "2024",
+        "journal-title": "Artif. Intell. Rev."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0023",
+        "doi-asserted-by": "crossref",
+        "first-page": "42",
+        "DOI": "10.1017/jfm.2017.823",
+        "article-title": "Constrained sparse Galerkin regression",
+        "volume": "838",
+        "author": "Loiseau",
+        "year": "2018",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0024",
+        "article-title": "Physics-constrained robust learning of open-form partial differential equations from limited and noisy data",
+        "volume": "36",
+        "author": "Du",
+        "year": "2024",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0025",
+        "article-title": "DISCOVER: deep identification of symbolically concise open-form partial differential equations via enhanced reinforcement learning",
+        "volume": "8",
+        "author": "Du",
+        "year": "2024",
+        "journal-title": "Phys. Rev. Res."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0026",
+        "doi-asserted-by": "crossref",
+        "unstructured": "H.Y. Zhou, H.C. Li, Y.M. Zhao, Identification of partial differential equations from noisy data with integrated knowledge discovery and embedding using evolutionary neural networks, Theor. Appl. Mech. Lett., 14(2) (2024) 100511. 10.1016/j.taml.2024.100511.",
+        "DOI": "10.1016/j.taml.2024.100511"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0027",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.jcp.2020.109413",
+        "article-title": "RANS turbulence model development using CFD-driven machine learning",
+        "volume": "411",
+        "author": "Zhao",
+        "year": "2020",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "issue": "5",
+        "key": "10.1016/j.jcp.2026.115311_bib0028",
+        "doi-asserted-by": "crossref",
+        "first-page": "2100",
+        "DOI": "10.2514/1.J062572",
+        "article-title": "Toward more general turbulence models via multicase computational-fluid-dynamics-driven training",
+        "volume": "61",
+        "author": "Fang",
+        "year": "2023",
+        "journal-title": "AIAA J."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0029",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.ijheatfluidflow.2023.109140",
+        "article-title": "A coupled framework for symbolic turbulence models from deep-learning",
+        "volume": "101",
+        "author": "Lav",
+        "year": "2023",
+        "journal-title": "Int. J. Heat Fluid Fl."
+      },
+      {
+        "issue": "11",
+        "key": "10.1016/j.jcp.2026.115311_bib0030",
+        "doi-asserted-by": "crossref",
+        "first-page": "3734",
+        "DOI": "10.2514/1.J055378",
+        "article-title": "Hybrid Reynolds-averaged/large-eddy simulation methodology from symbolic regression: formulation and application",
+        "volume": "55",
+        "author": "Weatheritt",
+        "year": "2017",
+        "journal-title": "AIAA J."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0031",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.combustflame.2021.111758",
+        "article-title": "Interpretable data-driven methods for subgrid-scale closure in LES for transcritical LOX/GCH4 combustion",
+        "volume": "239",
+        "author": "Chung",
+        "year": "2022",
+        "journal-title": "Combust. Flame"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0032",
+        "article-title": "Evolutionary neural networks for learning turbulence closure models with explicit expressions",
+        "volume": "36",
+        "author": "Li",
+        "year": "2024",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0033",
+        "doi-asserted-by": "crossref",
+        "first-page": "22",
+        "DOI": "10.1016/j.jcp.2016.08.015",
+        "article-title": "A novel evolutionary algorithm applied to algebraic modifications of the RANS stress–strain relationship",
+        "volume": "325",
+        "author": "Weatheritt",
+        "year": "2016",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0034",
+        "unstructured": "X. Li, Y. Wang, S. Basu, et al., A debiased MDI feature importance measure for random forests (2019). 10.48550/arXiv.1906.10845."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0035",
+        "unstructured": "M. Cranmer, Interpretable machine learning for science with PySR and symbolic regression.jl, 2023, 10.48550/arXiv.2305.01582."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0036",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2022.744",
+        "article-title": "Ensemble Kalman method for learning turbulence models from indirect observation data",
+        "volume": "949",
+        "author": "Zhang",
+        "year": "2022",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0037",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.jcp.2025.114068",
+        "article-title": "A framework for learning symbolic turbulence models from indirect observation data via neural networks and feature importance analysis",
+        "author": "Wu",
+        "year": "2025",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0038",
+        "doi-asserted-by": "crossref",
+        "first-page": "5",
+        "DOI": "10.1023/A:1010933404324",
+        "article-title": "Random forests",
+        "volume": "45",
+        "author": "Breiman",
+        "year": "2001",
+        "journal-title": "Mach. Learn."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0039",
+        "unstructured": "M. Cranmer, A. Sanchez-Gonzalez, P. Battaglia, R. Xu, K. Cranmer, D. Spergel, S. Ho, Discovering symbolic models from deep learning with inductive biases, (2020). 10.48550/arXiv.2006.11287."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0040",
+        "unstructured": "Y. Ling, I. Hayat, K. Goc, A. Lozano-Durán, redGeneral-purpose data-driven wall model for low-speed flows Part I: baseline model (2025). arXiv preprint arXiv: 2511.16511."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0041",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2025.10332",
+        "article-title": "Data-enabled discovery of specific and generalisable turbulence closures",
+        "volume": "1016",
+        "author": "Yang",
+        "year": "2025",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0042",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1145/3679012",
+        "article-title": "A review and benchmark of feature importance methods for neural networks",
+        "volume": "56",
+        "author": "Mandler",
+        "year": "2024",
+        "journal-title": "ACM Comput. Surv."
+      },
+      {
+        "issue": "7",
+        "key": "10.1016/j.jcp.2026.115311_bib0043",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.5.074602",
+        "article-title": "Physics and modeling of trailing-edge stall phenomena for wall-modeled large-eddy simulation",
+        "volume": "5",
+        "author": "Tamaki",
+        "year": "2020",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0044",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.jcp.2024.112948",
+        "article-title": "Sensitivity analysis of wall-modeled large-eddy simulation for separated turbulent flow",
+        "volume": "506",
+        "author": "Zhou",
+        "year": "2024",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "issue": "10",
+        "key": "10.1016/j.jcp.2026.115311_bib0045",
+        "doi-asserted-by": "crossref",
+        "first-page": "3713",
+        "DOI": "10.2514/1.J063691",
+        "article-title": "Wall modeling of turbulent flows with varying pressure gradients using multi-agent reinforcement learning",
+        "volume": "62",
+        "author": "Zhou",
+        "year": "2024",
+        "journal-title": "AIAA J."
+      },
+      {
+        "issue": "12",
+        "key": "10.1016/j.jcp.2026.115311_bib0046",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.9.124603",
+        "article-title": "Nonequilibrium wall model for large eddy simulations of complex flows exhibiting turbulent smooth body separation",
+        "volume": "9",
+        "author": "Agrawal",
+        "year": "2024",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "issue": "1",
+        "key": "10.1016/j.jcp.2026.115311_bib0047",
+        "doi-asserted-by": "crossref",
+        "first-page": "127",
+        "DOI": "10.1038/s44172-024-00278-1",
+        "article-title": "redBuilding-block-flow computational model for large-eddy simulation of external aerodynamic applications",
+        "volume": "3",
+        "author": "Arranz",
+        "year": "2024",
+        "journal-title": "Commun. Eng."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0048",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.compfluid.2019.104319",
+        "article-title": "Subgrid-scale model for large-eddy simulation of isotropic turbulent flows using an artificial neural network",
+        "volume": "195",
+        "author": "Zhou",
+        "year": "2019",
+        "journal-title": "Comput. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0049",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2020.931",
+        "article-title": "Toward neural-network-based large eddy simulation: application to turbulent channel flow",
+        "volume": "914",
+        "author": "Park",
+        "year": "2021",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "issue": "3",
+        "key": "10.1016/j.jcp.2026.115311_bib0050",
+        "doi-asserted-by": "crossref",
+        "first-page": "243",
+        "DOI": "10.1007/s00162-007-0055-0",
+        "article-title": "Near-wall scaling for turbulent boundary layers with adverse pressure gradient: a priori tests on DNS of channel flow with periodic hill constrictions and DNS of separating boundary layer",
+        "volume": "22",
+        "author": "Manhart",
+        "year": "2008",
+        "journal-title": "Theor. Comp. Fluid Dyn."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0051",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1126/sciadv.aay2631",
+        "article-title": "AI Feynman: a physics-inspired method for symbolic regression",
+        "volume": "6",
+        "author": "Udrescu",
+        "year": "2020",
+        "journal-title": "Sci. Adv."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0052",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.compfluid.2020.104431",
+        "article-title": "Flows over periodic hills of parameterized geometries: a dataset for data-driven turbulence modeling from direct simulations",
+        "volume": "200",
+        "author": "Xiao",
+        "year": "2020",
+        "journal-title": "Comput. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0053",
+        "doi-asserted-by": "crossref",
+        "first-page": "19",
+        "DOI": "10.1017/S0022112004002812",
+        "article-title": "Highly resolved large-eddy simulation of separated flow in a channel with streamwise periodic constrictions",
+        "volume": "526",
+        "author": "Fröhlich",
+        "year": "2005",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "issue": "4",
+        "key": "10.1016/j.jcp.2026.115311_bib0054",
+        "doi-asserted-by": "crossref",
+        "first-page": "2130",
+        "DOI": "10.2514/1.J060760",
+        "article-title": "High-fidelity simulation of turbulent flow past Gaussian bump",
+        "volume": "60",
+        "author": "Uzun",
+        "year": "2022",
+        "journal-title": "AIAA J."
+      },
+      {
+        "issue": "4",
+        "key": "10.1016/j.jcp.2026.115311_bib0055",
+        "doi-asserted-by": "crossref",
+        "first-page": "30",
+        "DOI": "10.1007/s00162-025-00749-x",
+        "article-title": "Direct numerical simulation of flow past a Gaussian bump at a high Reynolds number",
+        "volume": "39",
+        "author": "Uzun",
+        "year": "2025",
+        "journal-title": "Theor. Comp. Fluid Dyn."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0056",
+        "series-title": "AIAA SciTech 2021 Forum",
+        "first-page": "1438",
+        "article-title": "Wall-modeled LES of flow over a Gaussian bump",
+        "author": "Iyer",
+        "year": "2021"
+      },
+      {
+        "issue": "11",
+        "key": "10.1016/j.jcp.2026.115311_bib0057",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1103/PhysRevFluids.9.114605",
+        "article-title": "Wall-modeled large-eddy simulations of the flow over a Gaussian-shaped bump with a sensor-based blended wall model",
+        "volume": "9",
+        "author": "Xu",
+        "year": "2024",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0058",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.jcp.2026.114835",
+        "article-title": "A differentiable wall-modeled large-eddy simulation method for high-Reynolds-number wall-bounded turbulent flows",
+        "volume": "557",
+        "author": "Zhang",
+        "year": "2026",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0059",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1017/jfm.2025.361",
+        "article-title": "Knowledge-integrated additive learning for consistent near-wall modelling of turbulent flows",
+        "volume": "1011",
+        "author": "Zhang",
+        "year": "2025",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "issue": "2",
+        "key": "10.1016/j.jcp.2026.115311_bib0060",
+        "doi-asserted-by": "crossref",
+        "first-page": "652",
+        "DOI": "10.1016/S0021-9991(03)00090-1",
+        "article-title": "A digital filter based generation of inflow data for spatially developing direct numerical or large eddy simulations",
+        "volume": "186",
+        "author": "Klein",
+        "year": "2003",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0061",
+        "series-title": "AIAA AVIATION Forum",
+        "first-page": "2022",
+        "article-title": "Benchmark characterization of separated flow over smooth Gaussian bump",
+        "author": "Gray",
+        "year": "2022"
+      },
+      {
+        "issue": "12",
+        "key": "10.1016/j.jcp.2026.115311_bib0062",
+        "doi-asserted-by": "crossref",
+        "first-page": "2820",
+        "DOI": "10.2514/1.13817",
+        "article-title": "Experimental investigation of separation control Part 1: baseline and steady suction",
+        "volume": "44",
+        "author": "Greenblatt",
+        "year": "2006",
+        "journal-title": "AIAA J."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0063",
+        "series-title": "2nd AIAA Flow Control Conference",
+        "first-page": "2220",
+        "article-title": "A separation control CFD validation test case. Part 1: baseline & steady suction",
+        "author": "Greenblatt",
+        "year": "2004"
+      },
+      {
+        "issue": "2",
+        "key": "10.1016/j.jcp.2026.115311_bib0064",
+        "doi-asserted-by": "crossref",
+        "first-page": "194",
+        "DOI": "10.2514/1.12957",
+        "article-title": "Summary of the 2004 computational fluid dynamics validation workshop on synthetic jets",
+        "volume": "44",
+        "author": "Rumsey",
+        "year": "2006",
+        "journal-title": "AIAA J."
+      },
+      {
+        "issue": "11",
+        "key": "10.1016/j.jcp.2026.115311_bib0065",
+        "doi-asserted-by": "crossref",
+        "first-page": "3709",
+        "DOI": "10.2514/1.J055745",
+        "article-title": "Wall-modeled large-eddy simulation of a high Reynolds number separating and reattaching flow",
+        "volume": "55",
+        "author": "Park",
+        "year": "2017",
+        "journal-title": "AIAA J."
+      },
+      {
+        "issue": "11",
+        "key": "10.1016/j.jcp.2026.115311_bib0066",
+        "doi-asserted-by": "crossref",
+        "first-page": "2571",
+        "DOI": "10.2514/1.21989",
+        "article-title": "Large-eddy simulation of flow over a wall-mounted hump with separation control",
+        "volume": "44",
+        "author": "You",
+        "year": "2006",
+        "journal-title": "AIAA J."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0067",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.compfluid.2025.106779",
+        "article-title": "Direct numerical simulation of smooth-body flow separation around a ramp",
+        "volume": "301",
+        "author": "Uzun",
+        "year": "2025",
+        "journal-title": "Comput. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0068",
+        "series-title": "47th AIAA Fluid Dynamics Conference",
+        "first-page": "4128",
+        "article-title": "Benchmark smooth body flow separation experiments",
+        "author": "Simmons",
+        "year": "2017"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0069",
+        "series-title": "AIAA Aviation Forum and Ascend 2024",
+        "first-page": "3697",
+        "article-title": "Summary of the wall-modeled LES test suite from the 2024 AIAA high-fidelity CFD verification workshop",
+        "author": "Garmann",
+        "year": "2024"
+      },
+      {
+        "issue": "05",
+        "key": "10.1016/j.jcp.2026.115311_bib0070",
+        "doi-asserted-by": "crossref",
+        "first-page": "962",
+        "DOI": "10.2118/176023-PA",
+        "article-title": "Iterative ensemble smoother as an approximate solution to a regularized minimum-average-cost problem: theory and applications",
+        "volume": "20",
+        "author": "Luo",
+        "year": "2015",
+        "journal-title": "SPE J."
+      },
+      {
+        "issue": "12",
+        "key": "10.1016/j.jcp.2026.115311_bib0071",
+        "doi-asserted-by": "crossref",
+        "first-page": "2025",
+        "DOI": "10.1002/we.1802",
+        "article-title": "Large-eddy simulation of turbulent flow past wind turbines/farms: the virtual wind simulator (VWiS)",
+        "volume": "18",
+        "author": "Yang",
+        "year": "2015",
+        "journal-title": "Wind Energy"
+      },
+      {
+        "issue": "5",
+        "key": "10.1016/j.jcp.2026.115311_bib0072",
+        "doi-asserted-by": "crossref",
+        "first-page": "285",
+        "DOI": "10.1002/we.2162",
+        "article-title": "A new class of actuator surface models for wind turbines",
+        "volume": "21",
+        "author": "Yang",
+        "year": "2018",
+        "journal-title": "Wind Energy"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0073",
+        "doi-asserted-by": "crossref",
+        "first-page": "1",
+        "DOI": "10.1017/jfm.2019.206",
+        "article-title": "Effect of wind turbine nacelle on turbine wake dynamics in large wind farms",
+        "volume": "869",
+        "author": "Foti",
+        "year": "2019",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0074",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.apenergy.2020.116115",
+        "article-title": "High-fidelity simulations and field measurements for characterizing wind fields in a utility-scale wind farm",
+        "volume": "281",
+        "author": "Yang",
+        "year": "2021",
+        "journal-title": "Appl. Energy"
+      },
+      {
+        "issue": "1",
+        "key": "10.1016/j.jcp.2026.115311_bib0075",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1016/j.taml.2021.100318",
+        "article-title": "Towards multi-fidelity simulation of flows around an underwater vehicle with appendages and propeller",
+        "volume": "12",
+        "author": "Zhou",
+        "year": "2022",
+        "journal-title": "Theor. Appl. Mech. Lett."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0076",
+        "doi-asserted-by": "crossref",
+        "first-page": "99",
+        "DOI": "10.1175/1520-0493(1963)091<0099:GCEWTP>2.3.CO;2",
+        "article-title": "General circulation experiments with the primitive equations: I. The basic experiment",
+        "volume": "91",
+        "author": "Smagorinsky",
+        "year": "1963",
+        "journal-title": "Mon. Weather Rev."
+      },
+      {
+        "issue": "7",
+        "key": "10.1016/j.jcp.2026.115311_bib0077",
+        "doi-asserted-by": "crossref",
+        "first-page": "1760",
+        "DOI": "10.1063/1.857955",
+        "article-title": "A dynamic subgrid-scale eddy viscosity model",
+        "volume": "3",
+        "author": "Germano",
+        "year": "1991",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "issue": "3",
+        "key": "10.1016/j.jcp.2026.115311_bib0078",
+        "doi-asserted-by": "crossref",
+        "first-page": "633",
+        "DOI": "10.1063/1.858280",
+        "article-title": "A proposed modification of the Germano subgrid-scale closure method",
+        "volume": "4",
+        "author": "Lilly",
+        "year": "1992",
+        "journal-title": "Phys. Fluids"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0079",
+        "doi-asserted-by": "crossref",
+        "first-page": "51",
+        "DOI": "10.1023/A:1009998919233",
+        "article-title": "A Lagrangian mixed subgrid-scale model in generalized coordinates",
+        "volume": "65",
+        "author": "Armenio",
+        "year": "2000",
+        "journal-title": "Flow Turbul. Combust."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0080",
+        "series-title": "Large-eddy simulations: theory and applications",
+        "first-page": "269",
+        "author": "Piomelli",
+        "year": "1996"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0081",
+        "series-title": "Global Sensitivity Analysis: The Primer",
+        "author": "Saltelli",
+        "year": "2008"
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0082",
+        "doi-asserted-by": "crossref",
+        "first-page": "1",
+        "DOI": "10.1016/0951-8320(96)00002-6",
+        "article-title": "Importance measures in global sensitivity analysis of nonlinear models",
+        "volume": "52",
+        "author": "Homma",
+        "year": "1996",
+        "journal-title": "Reliab. Eng. Syst. Saf."
+      },
+      {
+        "key": "10.1016/j.jcp.2026.115311_bib0083",
+        "doi-asserted-by": "crossref",
+        "first-page": "259",
+        "DOI": "10.1016/j.cpc.2009.09.018",
+        "article-title": "Variance based sensitivity analysis of model output. Design and estimator for the total sensitivity index",
+        "volume": "181",
+        "author": "Saltelli",
+        "year": "2010",
+        "journal-title": "Comput. Phys. Commun."
+      }
+    ],
+    "container-title": [
+      "Journal of Computational Physics"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0021999126006601?httpAccept=text/xml",
+        "content-type": "text/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0021999126006601?httpAccept=text/plain",
+        "content-type": "text/plain",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          2
+        ]
+      ],
+      "date-time": "2026-09-02T13:40:05Z",
+      "timestamp": 1788356405000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0021999126006601"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026,
+          12
+        ]
+      ]
+    },
+    "references-count": 83,
+    "alternative-id": [
+      "S0021999126006601"
+    ],
+    "URL": "https://doi.org/10.1016/j.jcp.2026.115311",
+    "relation": {},
+    "ISSN": [
+      "0021-9991"
+    ],
+    "issn-type": [
+      {
+        "value": "0021-9991",
+        "type": "print"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          12
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "Elsevier",
+        "name": "publisher",
+        "label": "This article is maintained by"
+      },
+      {
+        "value": "A physics-embedded symbolic wall model for large-eddy simulation of separated flows",
+        "name": "articletitle",
+        "label": "Article Title"
+      },
+      {
+        "value": "Journal of Computational Physics",
+        "name": "journaltitle",
+        "label": "Journal Title"
+      },
+      {
+        "value": "https://doi.org/10.1016/j.jcp.2026.115311",
+        "name": "articlelink",
+        "label": "CrossRef DOI link to publisher maintained version"
+      },
+      {
+        "value": "article",
+        "name": "content_type",
+        "label": "Content Type"
+      },
+      {
+        "value": "© 2026 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+        "name": "copyright",
+        "label": "Copyright"
+      }
+    ],
+    "article-number": "115311"
+  }
+}

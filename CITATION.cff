@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite the corresponding JFE article."
+type: software
+title: "Roughness Lab: Feature importance-informed symbolic drag modelling"
+authors:
+  - family-names: Cheng
+    given-names: Ao
+  - family-names: Zhou
+    given-names: Zhideng
+  - family-names: Yang
+    given-names: Xiaolei
+  - family-names: He
+    given-names: Guowei
+repository-code: "https://github.com/ChengAo21/sr_rough_ks"
+license: MIT
+preferred-citation:
+  type: article
+  title: "A Drag Model for Rough Surfaces Learned Using Feature Importance-Informed Symbolic Regression"
+  authors:
+    - family-names: Cheng
+      given-names: Ao
+    - family-names: Zhou
+      given-names: Zhideng
+    - family-names: Yang
+      given-names: Xiaolei
+    - family-names: He
+      given-names: Guowei
+  journal: Journal of Fluids Engineering
+  volume: "148"
+  issue: "4"
+  start: "041302"
+  year: 2026
+  month: 4
+  doi: 10.1115/1.4070838

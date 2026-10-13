@@ -1,0 +1,8 @@
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+sr_results/
+release/
+*.log

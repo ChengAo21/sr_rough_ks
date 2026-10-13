@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" role="img" aria-label="Original workflow: roughness data, feature selection, symbolic regression, PCE sensitivity">
+<rect width="1200" height="240" rx="14" fill="#edf1e8"/>
+<g font-family="Arial,sans-serif" fill="#152c39">
+<path d="M40 104l14-19 13 21 17-40 14 35 15-13 16 16 18-46 13 40 16-15 15 20 14-30 16 25 13-8v48H40Z" fill="#81b6a6"/>
+<path d="M40 60h191m-191-16h178" stroke="#a4cdc3" stroke-width="2"/>
+<text x="40" y="173" font-size="19" font-weight="700">01 / Surface data</text><text x="40" y="199" font-size="14" fill="#647e7d">96 train + 8 unseen cases</text>
+<g stroke="#087f8c" stroke-width="7" stroke-linecap="round"><path d="M345 58h110"/><path d="M345 78h68"/><path d="M345 98h40"/><path d="M345 118h24"/></g>
+<text x="325" y="173" font-size="19" font-weight="700">02 / Feature importance</text><text x="325" y="199" font-size="14" fill="#647e7d">Po · Ex · Sk · kavg · Sx</text>
+<rect x="643" y="49" width="175" height="80" rx="9" fill="#152c39"/>
+<text x="730" y="82" text-anchor="middle" fill="#f7f7f2" font-family="Georgia,serif" font-size="23">f · g · h · ψ · φ</text>
+<text x="730" y="111" text-anchor="middle" fill="#99d1c6" font-size="13">a readable drag law</text>
+<text x="620" y="173" font-size="19" font-weight="700">03 / Symbolic search</text><text x="620" y="199" font-size="14" fill="#647e7d">Structure + data → equation</text>
+<g stroke="#d7e0d3"><path d="M950 128h173M950 38v90"/></g>
+<path d="M958 113q15-5 30-32t34 4 35 3 55-41" fill="none" stroke="#087f8c" stroke-width="3"/>
+<path d="M958 119q15-5 30-32t34 4 35 3 55-41L1112 38q-20 43-55 35t-35-3-34-4-30 41Z" fill="#087f8c" opacity=".13"/>
+<text x="930" y="173" font-size="19" font-weight="700">04 / PCE &amp; sensitivity</text><text x="930" y="199" font-size="14" fill="#647e7d">Surrogate → moments → Sobol</text>
+<g stroke="#8fa99a" fill="none" stroke-width="2"><path d="M260 88h38m-8-6 8 6-8 6M552 88h38m-8-6 8 6-8 6M855 88h38m-8-6 8 6-8 6"/></g>
+</g></svg>

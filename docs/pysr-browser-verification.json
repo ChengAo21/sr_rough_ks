@@ -1,0 +1,10 @@
+{
+  "engine": "PySR",
+  "status": "complete",
+  "metrics": [
+    "Training MAE1.0506",
+    "Held-out MARE35.37%",
+    "Held-out R²-1.454"
+  ],
+  "exception": []
+}

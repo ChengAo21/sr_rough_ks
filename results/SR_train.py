@@ -7,7 +7,7 @@ from pysr import PySRRegressor,ParametricExpressionSpec,TemplateExpressionSpec
 from sklearn.model_selection import train_test_split
 
 
-####################################################################         读取数据
+####################################################################         Load data
 try:
     path1 = './csvFiles/rough_surface_statistics.csv'
     rough_dat = pd.read_csv(path1, header = None)

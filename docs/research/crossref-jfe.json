@@ -1,0 +1,729 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          8,
+          26
+        ]
+      ],
+      "date-time": "2026-08-26T04:40:14Z",
+      "timestamp": 1787719214302,
+      "version": "build-2784847793"
+    },
+    "reference-count": 45,
+    "publisher": "ASME International",
+    "issue": "4",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              5
+            ]
+          ],
+          "date-time": "2026-02-05T00:00:00Z",
+          "timestamp": 1770249600000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://www.asme.org/publications-submissions/publishing-information/legal-policies"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100002367",
+        "name": "Chinese Academy of Sciences",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "YSBR-087 / XDB0620102"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "YSBR-087 / XDB0620102"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100002367",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "National Natural Science Foundation of China",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "12588201 / 12172360"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "12588201 / 12172360"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "asmedigitalcollection.asme.org"
+      ],
+      "crossmark-restriction": true
+    },
+    "short-container-title": [],
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          4,
+          1
+        ]
+      ]
+    },
+    "abstract": "<jats:title>Abstract</jats:title>\n                  <jats:p>Predicting the drag of rough surfaces presents a long-standing challenge in fluid dynamics. To address this, we propose a new drag model developed through a feature importance-informed symbolic regression method. Our method begins by identifying the key geometrical statistics governing the equivalent sandgrain roughness height, ks, via a quantitative feature importance analysis. Using 96 rough surface data samples, we then derive an analytical expression for ks within this reduced feature space using symbolic regression with appropriately prescribed expression templates. The proposed model outperforms empirical correlations, which are often limited to specific roughness types and arrangements, across diverse surfaces. It achieves a mean absolute relative error of 9.60% and a maximum of 30.79%, performance comparable to typical black-box models, while retaining the advantages of interpretability and portability. Furthermore, the model demonstrates extrapolation capability by accurately predicting results for 8 unseen datasets that lie outside the feature space of the training data. The relevant source code and results are available at following footnote link.2</jats:p>",
+    "DOI": "10.1115/1.4070838",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2026,
+          1,
+          9
+        ]
+      ],
+      "date-time": "2026-01-09T15:41:07Z",
+      "timestamp": 1767973267000
+    },
+    "update-policy": "https://doi.org/10.1115/crossmarkpolicy-asme",
+    "source": "Crossref",
+    "is-referenced-by-count": 1,
+    "title": [
+      "A Drag Model for Rough Surfaces Learned Using Feature Importance-Informed Symbolic Regression"
+    ],
+    "prefix": "10.1115",
+    "volume": "148",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0001-6759-2595",
+        "authenticated-orcid": false,
+        "given": "Ao",
+        "family": "Cheng",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "State Key Laboratory of Nonlinear Mechanics Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, China"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/057jnjd73",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Institute of Mechanics"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhideng",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "State Key Laboratory of Nonlinear Mechanics Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, China"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/057jnjd73",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Institute of Mechanics"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2606-0672",
+        "authenticated-orcid": false,
+        "given": "Xiaolei",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "State Key Laboratory of Nonlinear Mechanics Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, China"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/057jnjd73",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Institute of Mechanics"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Guowei",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "State Key Laboratory of Nonlinear Mechanics Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "33",
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          5
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "issue": "3",
+        "key": "2026020609550391900_bib1",
+        "doi-asserted-by": "crossref",
+        "first-page": "419",
+        "DOI": "10.1175/1520-0442(1993)006<0419:SOCSTL>2.0.CO;2",
+        "article-title": "Sensitivity of Climate Simulations to Land-Surface and Atmospheric Boundary-Layer Treatments-A Review",
+        "volume": "6",
+        "year": "1993",
+        "journal-title": "J. Clim."
+      },
+      {
+        "issue": "1",
+        "key": "2026020609550391900_bib2",
+        "doi-asserted-by": "crossref",
+        "first-page": "87",
+        "DOI": "10.1080/08927014.2010.542809",
+        "article-title": "Economic Impact of Biofouling on a Naval Surface Ship",
+        "volume": "27",
+        "year": "2011",
+        "journal-title": "Biofouling"
+      },
+      {
+        "key": "2026020609550391900_bib3",
+        "article-title": "Machine-Learning Wall-Model Large-Eddy Simulation Accounting for Isotropic Roughness Under Local Equilibrium",
+        "volume": "1007",
+        "year": "2025",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "issue": "1",
+        "key": "2026020609550391900_bib4",
+        "doi-asserted-by": "crossref",
+        "first-page": "349",
+        "DOI": "10.1146/annurev.fluid.34.082901.144919",
+        "article-title": "Wall-Layer Models for Large-Eddy Simulations",
+        "volume": "34",
+        "year": "2002",
+        "journal-title": "Annu. Rev. Fluid Mech."
+      },
+      {
+        "issue": "1",
+        "key": "2026020609550391900_bib5",
+        "doi-asserted-by": "crossref",
+        "first-page": "439",
+        "DOI": "10.1146/annurev-fluid-062520-115127",
+        "article-title": "Predicting the Drag of Rough Surfaces",
+        "volume": "53",
+        "year": "2021",
+        "journal-title": "Annu. Rev. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib6",
+        "article-title": "Laws of Flow in Rough Pipes",
+        "year": "1950"
+      },
+      {
+        "key": "2026020609550391900_bib7",
+        "article-title": "Experimental Investigation of the Problem of Surface Roughness",
+        "year": "1937"
+      },
+      {
+        "key": "2026020609550391900_bib8",
+        "volume-title": "The Structure of Turbulent Shear Flow",
+        "year": "1976"
+      },
+      {
+        "issue": "3",
+        "key": "2026020609550391900_bib9",
+        "doi-asserted-by": "crossref",
+        "first-page": "328",
+        "DOI": "10.1007/s00348-004-0903-2",
+        "article-title": "Outer Layer Similarity in Fully Rough Turbulent Boundary Layers",
+        "volume": "38",
+        "year": "2005",
+        "journal-title": "Exp. Fluids"
+      },
+      {
+        "issue": "6",
+        "key": "2026020609550391900_bib10",
+        "article-title": "Rough-Wall Modeling on a Low-Dimensional Manifold",
+        "volume": "10",
+        "year": "2025",
+        "journal-title": "Phys. Rev. Fluids"
+      },
+      {
+        "issue": "12",
+        "key": "2026020609550391900_bib11",
+        "doi-asserted-by": "crossref",
+        "first-page": "121201",
+        "DOI": "10.1115/1.4037280",
+        "article-title": "Toward a Universal Roughness Correlation",
+        "volume": "139",
+        "year": "2017",
+        "journal-title": "ASME J. Fluids Eng."
+      },
+      {
+        "issue": "2–3",
+        "key": "2026020609550391900_bib12",
+        "first-page": "317",
+        "article-title": "Skin Friction Measurements of Systematically-Varied Roughness: Probing the Role of Roughness Amplitude and Skewness",
+        "volume": "104",
+        "year": "2020",
+        "journal-title": "Flow Turbul. Combust."
+      },
+      {
+        "key": "2026020609550391900_bib13",
+        "doi-asserted-by": "crossref",
+        "first-page": "A8",
+        "DOI": "10.1017/jfm.2020.1085",
+        "article-title": "Data-Driven Prediction of the Equivalent Sand-Grain Height in Rough-Wall Turbulent Flows",
+        "volume": "912",
+        "year": "2021",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib14",
+        "article-title": "Predicting Drag on Rough Surfaces by Transfer Learning of Empirical Correlations",
+        "volume": "933",
+        "year": "2022",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib15",
+        "doi-asserted-by": "crossref",
+        "first-page": "113241",
+        "DOI": "10.1016/j.jcp.2024.113241",
+        "article-title": "A Data-Driven Distributed Force Model for Wall-Modeled Large-Eddy Simulations of Rough-Wall Turbulence",
+        "volume": "514",
+        "year": "2024",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "2026020609550391900_bib16",
+        "doi-asserted-by": "crossref",
+        "first-page": "21",
+        "DOI": "10.1016/j.ijheatfluidflow.2016.05.008",
+        "article-title": "Skin-Friction Behavior in the Transitionally-Rough Regime",
+        "volume": "61",
+        "year": "2016",
+        "journal-title": "Int. J. Heat Fluid Flow"
+      },
+      {
+        "issue": "16",
+        "key": "2026020609550391900_bib17",
+        "doi-asserted-by": "crossref",
+        "first-page": "eaay2631",
+        "DOI": "10.1126/sciadv.aay2631",
+        "article-title": "Ai Feynman: A Physics-Inspired Method for Symbolic Regression",
+        "volume": "6",
+        "year": "2020",
+        "journal-title": "Sci. Adv."
+      },
+      {
+        "key": "2026020609550391900_bib18",
+        "first-page": "87",
+        "article-title": "Gene Expression Programming: A New Adaptive Algorithm for Solving Problems",
+        "volume-title": "Complex Syst.",
+        "year": "2001"
+      },
+      {
+        "key": "2026020609550391900_bib19",
+        "article-title": "Interpretable Machine Learning for Science With PySR and Symbolic Regression.jl",
+        "year": "2023"
+      },
+      {
+        "key": "2026020609550391900_bib20",
+        "article-title": "Data-Enabled Discovery of Specific and Generalisable Turbulence Closures",
+        "volume": "1016",
+        "year": "2025",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib21",
+        "doi-asserted-by": "crossref",
+        "first-page": "114068",
+        "DOI": "10.1016/j.jcp.2025.114068",
+        "article-title": "A Framework for Learning Symbolic Turbulence Models From Indirect Observation Data Via Neural Networks and Feature Importance Analysis",
+        "volume": "537",
+        "year": "2025",
+        "journal-title": "J. Comput. Phys."
+      },
+      {
+        "key": "2026020609550391900_bib22",
+        "first-page": "4768",
+        "article-title": "A Unified Approach to Interpreting Model Predictions",
+        "volume-title": "31st International Conference on Neural Information Processing Systems",
+        "year": "2017"
+      },
+      {
+        "key": "2026020609550391900_bib23",
+        "doi-asserted-by": "crossref",
+        "first-page": "1",
+        "DOI": "10.1016/j.ijheatfluidflow.2018.04.015",
+        "article-title": "Measurements of Skin-Friction of Systematically Generated Surface Roughness",
+        "volume": "72",
+        "year": "2018",
+        "journal-title": "Int. J. Heat Fluid Flow"
+      },
+      {
+        "issue": "2",
+        "key": "2026020609550391900_bib24",
+        "doi-asserted-by": "crossref",
+        "first-page": "305",
+        "DOI": "10.1007/s10546-022-00760-3",
+        "article-title": "Effects of Wall Topology on Statistics of Cube-Roughened Wall Turbulence",
+        "volume": "186",
+        "year": "2023",
+        "journal-title": "Boundary-Layer Meteorol."
+      },
+      {
+        "issue": "4",
+        "key": "2026020609550391900_bib25",
+        "first-page": "73",
+        "article-title": "Numerical Study on the Orientation Effects of Roughness Elements on Turbulence Statistics",
+        "volume": "41",
+        "year": "2023",
+        "journal-title": "Acta Aerodyn. Sin."
+      },
+      {
+        "key": "2026020609550391900_bib26",
+        "article-title": "Consistent Individualized Feature Attribution for Tree Ensembles",
+        "year": "2018"
+      },
+      {
+        "key": "2026020609550391900_bib27",
+        "first-page": "1",
+        "article-title": "Pearson Correlation Coefficient",
+        "volume-title": "Noise Reduction in Speech Processing",
+        "year": "2009"
+      },
+      {
+        "key": "2026020609550391900_bib28",
+        "first-page": "17429",
+        "article-title": "Discovering Symbolic Models From Deep Learning With Inductive Biases",
+        "volume-title": "34th International Conference on Neural Information Processing Systems",
+        "year": "2020"
+      },
+      {
+        "issue": "10",
+        "key": "2026020609550391900_bib29",
+        "doi-asserted-by": "crossref",
+        "first-page": "5923",
+        "DOI": "10.2514/1.J061891",
+        "article-title": "Important Parameters for a Predictive Model of ks for Zero-Pressure-Gradient Flows",
+        "volume": "60",
+        "year": "2022",
+        "journal-title": "AIAA J."
+      },
+      {
+        "issue": "10",
+        "key": "2026020609550391900_bib30",
+        "doi-asserted-by": "crossref",
+        "first-page": "101302",
+        "DOI": "10.1115/1.4062820",
+        "article-title": "In Search of a Universal Rough Wall Model",
+        "volume": "145",
+        "year": "2023",
+        "journal-title": "J. Fluids Eng."
+      },
+      {
+        "key": "2026020609550391900_bib31",
+        "doi-asserted-by": "crossref",
+        "first-page": "781",
+        "DOI": "10.1017/jfm.2018.953",
+        "article-title": "Direct Numerical Simulation of Turbulence Over Systematically Varied Irregular Rough Surfaces",
+        "volume": "862",
+        "year": "2019",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "issue": "8",
+        "key": "2026020609550391900_bib32",
+        "doi-asserted-by": "crossref",
+        "first-page": "393",
+        "DOI": "10.1680/ijoti.1939.14509",
+        "article-title": "Correspondence. turbulent Flow in Pipes, With Particular Reference to the Transition Region Between the Smooth and Rough Pipe Laws (Includes Plates",
+        "volume": "12",
+        "year": "1939",
+        "journal-title": "J. Inst. Civ. Eng."
+      },
+      {
+        "key": "2026020609550391900_bib33",
+        "article-title": "Uncertainty Quantification and Sensitivity Analysis of SA Turbulence Model Coefficients in Two and Three Dimensions",
+        "volume-title": "AIAA",
+        "year": "2017"
+      },
+      {
+        "issue": "2",
+        "key": "2026020609550391900_bib34",
+        "doi-asserted-by": "crossref",
+        "first-page": "619",
+        "DOI": "10.1137/S1064827501387826",
+        "article-title": "The Wiener–Askey Polynomial Chaos for Stochastic Differential Equations",
+        "volume": "24",
+        "year": "2002",
+        "journal-title": "SIAM J. Sci. Comput."
+      },
+      {
+        "issue": "7",
+        "key": "2026020609550391900_bib35",
+        "doi-asserted-by": "crossref",
+        "first-page": "964",
+        "DOI": "10.1016/j.ress.2007.04.002",
+        "article-title": "Global Sensitivity Analysis Using Polynomial Chaos Expansions",
+        "volume": "93",
+        "year": "2008",
+        "journal-title": "Reliab. Eng. Syst. Saf."
+      },
+      {
+        "issue": "7",
+        "key": "2026020609550391900_bib36",
+        "doi-asserted-by": "crossref",
+        "first-page": "1161",
+        "DOI": "10.1016/j.ress.2008.10.008",
+        "article-title": "Polynomial Chaos Expansion for Sensitivity Analysis",
+        "volume": "94",
+        "year": "2009",
+        "journal-title": "Reliab. Eng. Syst. Saf."
+      },
+      {
+        "key": "2026020609550391900_bib37",
+        "doi-asserted-by": "crossref",
+        "first-page": "385",
+        "DOI": "10.1017/S0022112008003571",
+        "article-title": "The Effect of the Slope of Irregularly Distributed Roughness Elements on Turbulent Wall-Bounded Flows",
+        "volume": "613",
+        "year": "2008",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib38",
+        "doi-asserted-by": "crossref",
+        "first-page": "126",
+        "DOI": "10.1017/jfm.2018.150",
+        "article-title": "Direct Numerical Simulation of High Aspect Ratio Spanwise-Aligned Bars",
+        "volume": "843",
+        "year": "2018",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib39",
+        "doi-asserted-by": "crossref",
+        "first-page": "743",
+        "DOI": "10.1017/jfm.2015.172",
+        "article-title": "A Systematic Investigation of Roughness Height and Wavelength in Turbulent Pipe Flow in the Transitionally Rough Regime",
+        "volume": "771",
+        "year": "2015",
+        "journal-title": "J. Fluid Mech."
+      },
+      {
+        "key": "2026020609550391900_bib40",
+        "article-title": "The Effect of Volute Surface Roughness on the Performance of Automotive Turbocharger Turbines",
+        "volume": "1",
+        "year": "2017",
+        "journal-title": "J. Global Power Propul. Soc."
+      },
+      {
+        "issue": "12",
+        "key": "2026020609550391900_bib41",
+        "doi-asserted-by": "crossref",
+        "first-page": "2025",
+        "DOI": "10.1002/we.1802",
+        "article-title": "Large-Eddy Simulation of Turbulent Flow Past Wind Turbines/Farms: The Virtual Wind Simulator (VWiS)",
+        "volume": "18",
+        "year": "2015",
+        "journal-title": "Wind Energy"
+      },
+      {
+        "issue": "5",
+        "key": "2026020609550391900_bib42",
+        "doi-asserted-by": "crossref",
+        "first-page": "285",
+        "DOI": "10.1002/we.2162",
+        "article-title": "A New Class of Actuator Surface Models for Wind Turbines",
+        "volume": "21",
+        "year": "2018",
+        "journal-title": "Wind Energy"
+      },
+      {
+        "key": "2026020609550391900_bib43",
+        "volume-title": "Virtual Flow Simulator",
+        "year": "2015"
+      },
+      {
+        "issue": "1",
+        "key": "2026020609550391900_bib44",
+        "doi-asserted-by": "crossref",
+        "first-page": "100318",
+        "DOI": "10.1016/j.taml.2021.100318",
+        "article-title": "Towards Multi-Fidelity Simulation of Flows Around an Underwater Vehicle With Appendages and Propeller",
+        "volume": "12",
+        "year": "2022",
+        "journal-title": "Theor. Appl. Mech. Lett."
+      },
+      {
+        "issue": "7",
+        "key": "2026020609550391900_bib45",
+        "doi-asserted-by": "crossref",
+        "first-page": "1760",
+        "DOI": "10.1063/1.857955",
+        "article-title": "A Dynamic Subgrid-Scale Eddy Viscosity Model",
+        "volume": "3",
+        "year": "1991",
+        "journal-title": "Phys. Fluids"
+      }
+    ],
+    "container-title": [
+      "Journal of Fluids Engineering"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://asmedigitalcollection.asme.org/fluidsengineering/article-pdf/148/4/041302/7584515/fe-25-1583.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "https://asmedigitalcollection.asme.org/fluidsengineering/article-pdf/148/4/041302/7584515/fe-25-1583.pdf",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          6
+        ]
+      ],
+      "date-time": "2026-02-06T14:55:13Z",
+      "timestamp": 1770389713000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://asmedigitalcollection.asme.org/fluidsengineering/article/148/4/041302/1229954/A-Drag-Model-for-Rough-Surfaces-Learned-Using"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          5
+        ]
+      ]
+    },
+    "references-count": 45,
+    "journal-issue": {
+      "issue": "4",
+      "published-print": {
+        "date-parts": [
+          [
+            2026,
+            4,
+            1
+          ]
+        ]
+      }
+    },
+    "URL": "https://doi.org/10.1115/1.4070838",
+    "relation": {},
+    "ISSN": [
+      "0098-2202",
+      "1528-901X"
+    ],
+    "issn-type": [
+      {
+        "value": "0098-2202",
+        "type": "print"
+      },
+      {
+        "value": "1528-901X",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          5
+        ]
+      ]
+    },
+    "article-number": "041302"
+  }
+}

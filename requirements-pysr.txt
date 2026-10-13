@@ -1,0 +1,3 @@
+-r requirements.txt
+pysr>=1.5,<3
+sympy>=1.13,<2

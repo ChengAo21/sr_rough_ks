@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 440" role="img" aria-label="Roughness Lab: rough surfaces, readable physics">
+<defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#142d3a"/><stop offset="1" stop-color="#164950"/></linearGradient><linearGradient id="b" x2="0" y2="1"><stop stop-color="#8fcabc"/><stop offset="1" stop-color="#2e777c"/></linearGradient></defs>
+<rect width="1400" height="440" rx="18" fill="url(#a)"/>
+<g font-family="Arial,sans-serif"><text x="70" y="68" font-size="15" letter-spacing="4" fill="#9bc8bd">JOURNAL OF FLUIDS ENGINEERING · 2026</text>
+<text x="66" y="163" font-family="Georgia,serif" font-size="65" fill="#f6f4e9">Rough surfaces.</text><text x="66" y="236" font-family="Georgia,serif" font-size="65" fill="#f6f4e9">Readable physics.</text>
+<text x="70" y="291" font-size="20" fill="#b5ccca">Feature importance-informed symbolic drag modelling</text>
+<text x="70" y="365" font-size="15" letter-spacing="2" fill="#94c7ba">EXPLORE THE MODEL   /   RUN SYMBOLIC SEARCH   /   WATCH PCE</text></g>
+<g transform="translate(860 78)"><path d="M0 233 36 174 64 216 102 108 134 202 171 156 202 212 239 80 272 180 308 122 341 190 377 74 413 169 455 117 487 192v73H0Z" fill="url(#b)"/>
+<g stroke="#a9d4c4" fill="none" opacity=".52"><path d="M0 233 36 174 64 216 102 108 134 202 171 156 202 212 239 80 272 180 308 122 341 190 377 74 413 169 455 117 487 192"/><path d="M0 248 36 189 64 231 102 123 134 217 171 171 202 227 239 95 272 195 308 137 341 205 377 89 413 184 455 132 487 207"/><path d="M0 264 36 205 64 247 102 139 134 233 171 187 202 243 239 111 272 211 308 153 341 221 377 105 413 200 455 148 487 223"/></g>
+<path d="M-15 49H458m-473-21H430m-445 42H484" stroke="#7fb5b2" stroke-width="2" opacity=".35"/>
+<text x="120" y="37" font-family="Georgia,serif" font-size="29" fill="#eab38a">kₛ / kᵣₘₛ = ∏ fᵢ(xᵢ)</text></g></svg>

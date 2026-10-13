@@ -1,0 +1,14 @@
+{
+  "streamlit": "1.65.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "plotly": "7.1.0",
+  "matplotlib": "3.11.2",
+  "scikit-learn": "1.9.1",
+  "pysr": "2.7.0",
+  "sympy": "1.14.0",
+  "joblib": "1.6.0",
+  "pillow": "12.3.0",
+  "threadpoolctl": "3.7.0"
+}

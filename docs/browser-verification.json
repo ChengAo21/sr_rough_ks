@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:8507",
+  "errors": [],
+  "exceptions": [],
+  "steps": [
+    "Overview loaded",
+    "Live Python GP searched",
+    "PCE fitted",
+    "PCE Play clicked",
+    "Sensitivity displayed",
+    "Model explorer loaded",
+    "Citations loaded"
+  ]
+}
