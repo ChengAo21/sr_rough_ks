@@ -2,20 +2,20 @@
 
 ![Roughness Lab — rough surfaces, readable physics](assets/banner.svg)
 
-**An interactive research companion for feature importance-informed symbolic drag modelling.**
+**Feature importance-informed symbolic drag modelling, from discovery to interpretation.**
 
 [![Paper · JFE 2026](https://img.shields.io/badge/JFE_2026-10.1115%2F1.4070838-087f8c?style=flat-square)](https://doi.org/10.1115/1.4070838)
-[![Related · JCP 2026](https://img.shields.io/badge/JCP_2026-Physics_embedded_wall_model-152c39?style=flat-square)](https://doi.org/10.1016/j.jcp.2026.115311)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-536e70?style=flat-square)](#run-the-interactive-lab)
+[![Streamlit app](https://img.shields.io/badge/Streamlit-Open_Roughness_Lab-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://jfe-rough-sr.streamlit.app/)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-536e70?style=flat-square)](#run-locally)
 [![License: MIT](https://img.shields.io/badge/License-MIT-e58b53?style=flat-square)](LICENSE)
 
-[Research](#the-research) · [Results](#results-you-can-inspect) · [Interactive lab](#run-the-interactive-lab) · [PCE](#polynomial-chaos-in-motion) · [Cite](#citation) · [Local guide](docs/LOCAL_DEMO.md)
+[Research](#research-overview) · [Model performance](#model-performance) · [Web app](https://jfe-rough-sr.streamlit.app/) · [Local setup](#run-locally) · [PCE & sensitivity](#uncertainty-and-sensitivity) · [Related publication](#related-publication) · [Cite](#cite-this-work)
 
 </div>
 
-## The research
+## Research overview
 
-Predicting drag across diverse rough surfaces calls for a model that is both accurate and readable. This work selects influential geometric features, learns a structured analytical expression for equivalent sandgrain roughness, and uses polynomial chaos expansion (PCE) to interpret the model's sensitivity.
+Predicting drag across diverse rough surfaces calls for a model that is both accurate and readable. This work identifies influential geometric features, learns a structured analytical expression for equivalent sandgrain roughness, and uses polynomial chaos expansion (PCE) to interpret the model's sensitivity.
 
 **Ao Cheng, Zhideng Zhou, Xiaolei Yang and Guowei He**  
 *A Drag Model for Rough Surfaces Learned Using Feature Importance-Informed Symbolic Regression*  
@@ -25,9 +25,9 @@ Predicting drag across diverse rough surfaces calls for a model that is both acc
 |:---:|:---:|:---:|:---:|
 | **96** | **8** | **9.60%** | **30.79%** |
 
-These are the paper's results across the 104 supplied cases, rather than performance claims for a short interactive search. The public expression and CSV reproduce 9.5979% mean and 30.7924% maximum absolute relative error.
+The paper reports these results across the 104 supplied cases. Evaluating the public expression on the repository data reproduces 9.5979% mean and 30.7924% maximum absolute relative error.
 
-![Original redrawing of the research workflow](assets/workflow.svg)
+![Research workflow: data, feature importance, symbolic regression and sensitivity analysis](assets/workflow.svg)
 
 Five geometric inputs form a product of univariate subfunctions:
 
@@ -35,109 +35,136 @@ $$
 \frac{k_s}{k_{\mathrm{rms}}}=h(P_o)\,g(E_x)\,f(S_k)\,\psi(k_{\mathrm{avg}})\,\phi(S_x).
 $$
 
-The multiplicative template makes each feature's contribution available for inspection. See the article's Sections 4.4–4.5 and Appendix C for sensitivity analysis and the mathematical PCE formulation.
+The multiplicative template makes each feature's contribution available for inspection. Sections 4.4–4.5 and Appendix C of the article describe the sensitivity analysis and PCE formulation.
 
-## Results you can inspect
+## Model performance
 
-![Recomputed model predictions and errors by data family](assets/model_results.png)
+![Model predictions and errors by data family, recomputed from the public expression](assets/model_results.png)
 
-**Recomputed from the repository data.** Each point uses the public analytical expression; DNSLC diamonds are the eight held-out cases. The second panel shows errors within each data family. These figures were newly drawn from code and data, with a layout distinct from the paper. No paper figures were cropped or copied.
+Each point evaluates the public analytical expression. DNSLC diamonds mark the eight held-out cases; the second panel summarizes errors within each data family. The plots are newly drawn from the repository data.
 
-The lab also includes the two archived symbolic-search fronts in `results/csvFiles/`. Archived results are labelled separately from newly executed searches.
+The application also displays the two archived symbolic-search fronts in `results/csvFiles/`, separately from newly executed searches.
 
-## Run the interactive lab
+## Explore Roughness Lab
+
+**[Open the Streamlit app ↗](https://jfe-rough-sr.streamlit.app/)**
+
+Explore the model in your browser, run a symbolic search, and watch a polynomial surrogate take shape.
+
+| Workspace | What you can explore |
+|:---|:---|
+| **Overview** | Rotate the 3D response surface and inspect predictions across five data families. |
+| **Symbolic Lab** | Set operators, seed, search budget and complexity; inspect equations, process logs, training metrics and held-out predictions. |
+| **PCE Studio** | Configure independent uniform/normal input distributions, polynomial degree and LHS size; fit `PolyChaos`, play the expansion animation and inspect Sobol indices. |
+| **Model Explorer** | Adjust all five features and examine their individual factors, joint response and source data. |
+| **Research & Cite** | Read the publications, copy BibTeX and review the experiment settings. |
+
+![A symbolic-regression experiment in the Streamlit interface](assets/screenshots/03-symbolic-result.png)
+
+A completed PySR experiment is included as a [saved run](docs/runs/pysr_seed42.json), [process log](docs/runs/pysr_process.txt) and [result screenshot](assets/screenshots/10-pysr-result.png). Select **View verified PySR demo** to inspect it without starting another search.
+
+## Run locally
+
+Python **3.12** is the recommended version and was used for local verification.
 
 ```bash
 python -m venv .venv
-# Windows PowerShell
+# Windows PowerShell:
 .venv\Scripts\Activate.ps1
 # macOS / Linux: source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m streamlit run streamlit_app.py --server.port 8507
 ```
 
-Open **[http://localhost:8507](http://localhost:8507)**. On Windows, the one-command launcher handles environment creation and installation:
+Open [http://localhost:8507](http://localhost:8507). On Windows, the launcher handles environment creation and dependency installation:
 
 ```powershell
 .\start_streamlit.ps1
 ```
 
-| Workspace | What you can do |
-|:---|:---|
-| **Overview** | Explore an interactive 3D response surface and recomputed predictions across five datasets. |
-| **Symbolic Lab** | Set operators, seed, iteration count, population size and complexity; run an actual search; inspect logs, equations, training metrics and held-out predictions. |
-| **PCE Studio** | Edit independent uniform/normal input distributions, polynomial degree and LHS size; fit the original `PolyChaos`; play the expansion animation; inspect Sobol indices and independent validation. |
-| **Model Explorer** | Adjust all five features; inspect response surfaces, individual factors and source data. |
-| **Research & Cite** | Copy verified BibTeX, open the companion paper, and inspect provenance notes. |
+See the [setup and demonstration guide](docs/LOCAL_DEMO.md) for a walkthrough, or the [Streamlit deployment guide](docs/STREAMLIT_DEPLOYMENT.md) to deploy your own instance.
 
-![A real local symbolic-regression run in the Streamlit interface](assets/screenshots/03-symbolic-result.png)
+### Symbolic regression engines
 
-The original PySR backend was also executed through the page. Its [saved run](docs/runs/pysr_seed42.json), [process log](docs/runs/pysr_process.txt), and [result screenshot](assets/screenshots/10-pysr-result.png) are included. Select **View verified PySR demo** in a fresh lab session to inspect it without another search. It is clearly labelled as a saved experiment.
+**Python GP** provides a lightweight genetic-programming search for immediate exploration without Julia. It uses the same inputs and operator family, an optional separated-variable product template and protected numerical operators.
 
-### Symbolic regression backends
-
-**Python GP** is an included lightweight genetic-programming engine for immediate exploration without Julia. It performs a new search using the same inputs and operator family, with optional separated-variable product structure. Numerical protections are applied to division, exponentials, squares and products. This engine is explicitly distinct from the paper's PySR implementation.
-
-**PySR** adapts the original `results/SR_train.py` and preserves the five-factor expression template, float64 precision and L1 objective. Install its additional dependencies:
+**PySR** adapts the original `results/SR_train.py`, retaining the five-factor template, float64 precision and L1 objective. To enable live PySR searches locally:
 
 ```bash
 python -m pip install -r requirements-pysr.txt
 ```
 
-Then select **PySR** in the lab. The first launch installs or locates Julia and initializes SymbolicRegression.jl. Initialization is recorded in the live log. Search runs in a separate process and can be cancelled. See [the local guide](docs/LOCAL_DEMO.md) for first-run setup and troubleshooting.
+Then select **PySR** in the app. The first run initializes Julia and SymbolicRegression.jl. Searches run in separate processes, expose their logs and can be cancelled.
 
-The paper configuration uses **1500 iterations, 90 populations, population size 80, 1200 cycles per iteration and maximum size 60**. The interactive defaults use smaller budgets. A short run is an illustration of the search process, not a reproduction of the published optimum.
+The paper configuration uses **1500 iterations, 90 populations, population size 80, 1200 cycles per iteration and maximum size 60**. The interface defaults to a smaller budget for exploration; results from those short searches are labelled separately from the published model.
 
-## Polynomial chaos in motion
+## Uncertainty and sensitivity
 
-![A newly computed PCE expansion assembled by polynomial degree](assets/pce_expansion.gif)
+![The fitted PCE expansion assembled by polynomial degree](assets/pce_expansion.gif)
 
-**Actual computed expansion.** The left panel shows a slice of the symbolic drag model; the right panel progressively retains higher-degree terms from one fitted PCE. Fixed inputs are Po=0.634, kavg=0.067 and Sx=0.159. This is an animation of polynomial approximation, not a time-resolved fluid simulation.
+The left panel shows a slice of the symbolic drag model. The right panel progressively retains higher-degree terms from one fitted PCE. Other inputs are fixed at Po=0.634, kavg=0.067 and Sx=0.159. The animation illustrates polynomial approximation rather than fluid evolution in time.
 
-![Newly computed PCE validation and sensitivity](assets/pce_results.png)
+![PCE validation and Sobol sensitivity indices](assets/pce_results.png)
 
-The above PCE experiment uses the paper's **Table 5 mixed distributions**, **degree 6**, **462 basis terms**, **2500 LHS fitting samples**, and **seed 42**. Validation uses **1200 independently sampled LHS points**, so it also probes distribution tails beyond the empirical feature bounds. It is a new diagnostic run; the paper's validation plot uses different evaluation points. The precise settings and numerical results are saved in [verification-results.json](docs/verification-results.json).
+This experiment uses the paper's **Table 5 mixed distributions**, **degree 6**, **462 basis terms**, **2500 LHS fitting samples** and **seed 42**. Validation uses **1200 independent LHS points**, including distribution tails beyond the empirical feature bounds. Exact settings and results are available in [verification-results.json](docs/verification-results.json).
 
-The app supports both this paper preset and a bounded uniform preset, plus an **Ishigami benchmark** for checking sensitivity-index convergence. The calculations call the existing `code_files/pce_core.py` implementation. All Sobol indices assume independent input distributions.
+The app also offers a bounded uniform preset and an **Ishigami benchmark** for checking sensitivity-index convergence. Calculations call the repository's `PolyChaos` implementation; Sobol indices assume independent inputs.
 
-Helpful examples: [UQpy PCE gallery](https://uqpyproject.readthedocs.io/en/latest/auto_examples/surrogates/pce/) · [Chaospy polynomial introduction](https://chaospy.readthedocs.io/en/master/user_guide/polynomial/introduction.html). These are learning references; the lab's figures and animations are original.
+## Learning resources
 
-## Repository guide
+Helpful examples and documentation:
+
+- **[PySR examples](https://pysr.ai/examples)** and **[API reference](https://ai.damtp.cam.ac.uk/pysr/api)**: symbolic regression, expression templates, operators and search settings.
+- **[UQpy PCE gallery](https://uqpyproject.readthedocs.io/en/latest/auto_examples/surrogates/pce/)**: surrogate construction and sensitivity-analysis examples.
+- **[Chaospy polynomial introduction](https://chaospy.readthedocs.io/en/master/user_guide/polynomial/introduction.html)**: orthogonal polynomial expansions and uncertainty quantification.
+
+## Repository structure
 
 ```text
-streamlit_app.py                 Interactive research companion
-roughlab/                       Data/model adapters, charts, PCE and SR workers
+streamlit_app.py                 Streamlit application entry point
+roughlab/                       Model adapters, visualizations and experiment workers
 code_files/                     Original PCE research implementation
-  pce_core.py                   PolyChaos: LHS, least squares, moments, Sobol
-  pce_utils.py                  Polynomial / quadrature utilities
-  run_analysis.py               Original user model and execution example
+  pce_core.py                   PolyChaos: LHS, least squares, moments and Sobol indices
+  pce_utils.py                  Polynomial and quadrature utilities
+  run_analysis.py               Original model and analysis example
 results/
   SR_train.py                   Original PySR training configuration
   csvFiles/                     104 roughness cases and archived search fronts
-  subFunc_plot.ipynb             Original factor / interaction notebook
-  loss_plot.ipynb                Original search-front notebook
-assets/                         Original redrawings, animation and app screenshots
-docs/                           Local guide, verification and citation sources
-tools/build_assets.py           Rebuild showcase figures from code and data
+  subFunc_plot.ipynb             Factor and interaction notebook
+  loss_plot.ipynb                Search-front notebook
+assets/                         Figures, animation and application screenshots
+docs/                           Setup, deployment, saved runs and citation metadata
+tools/                          Figure generation, browser checks and release packaging
 tests/                          Numerical and application verification
-CITATION.bib / CITATION.cff      Verified article metadata
+CITATION.bib / CITATION.cff      Publication metadata
 requirements*.txt               Base dependencies and optional PySR backend
 start_streamlit.ps1              Windows launcher
 ```
 
-Original research scripts remain available. The app adds a presentation and experiment layer, including explicit feature ordering and continuous limits at Sk=0 and kavg=0.
-
-## Related work
+## Related publication
 
 **[A physics-embedded symbolic wall model for large-eddy simulation of separated flows](https://doi.org/10.1016/j.jcp.2026.115311)**  
 Ao Cheng, Xin-Lei Zhang, Zhideng Zhou, Xiaolei Yang and Guowei He.  
 *Journal of Computational Physics* **567**, 115311 (2026).
 
-A companion study on interpretable wall modelling for separated-flow LES. Its article record is linked here for context; its solver and training pipeline are not included in this repository.
+A related publication on interpretable, physics-embedded symbolic wall modelling for separated-flow large-eddy simulation.
 
-## Citation
+```bibtex
+@article{cheng2026wall,
+  title   = {A physics-embedded symbolic wall model for large-eddy simulation of separated flows},
+  author  = {Cheng, Ao and Zhang, Xin-Lei and Zhou, Zhideng and Yang, Xiaolei and He, Guowei},
+  journal = {Journal of Computational Physics},
+  volume  = {567},
+  pages   = {115311},
+  year    = {2026},
+  doi     = {10.1016/j.jcp.2026.115311},
+  url     = {https://doi.org/10.1016/j.jcp.2026.115311}
+}
+```
 
-Metadata checked against publisher-deposited Crossref records on **2026-10-13**, with the JFE PDF and JCP publisher page used as cross-checks. The JFE article identifier is **041302**, replacing the early README's provisional `pages={1-44}`. The print issue is **April 2026**; the article appeared online on February 5, 2026. See [citation verification](docs/CITATION_VERIFICATION.md).
+## Cite this work
+
+If you use this code or model, please cite the JFE article:
 
 ```bibtex
 @article{cheng2026drag,
@@ -154,12 +181,12 @@ Metadata checked against publisher-deposited Crossref records on **2026-10-13**,
 }
 ```
 
-Both articles' entries are available in [CITATION.bib](CITATION.bib). GitHub's citation interface is supported by [CITATION.cff](CITATION.cff).
+Both entries are available in [CITATION.bib](CITATION.bib). [CITATION.cff](CITATION.cff) supports GitHub's citation interface. Publication metadata is documented in [citation verification](docs/CITATION_VERIFICATION.md).
 
-## Contributors & acknowledgments
+## Contributors
 
 Research, original code and scientific interpretation: **Ao Cheng and coauthors**.
 
-**OpenAI Codex** assisted with the Streamlit interface, code integration, original redrawings, documentation and verification. This acknowledgment describes software assistance and does not assign research authorship.
+**OpenAI Codex** assisted with the Streamlit interface, code integration, figure generation, documentation and verification.
 
 Released under the [MIT License](LICENSE).

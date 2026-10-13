@@ -2,6 +2,8 @@
 
 The application entry point is `streamlit_app.py`. The default local address is **http://127.0.0.1:8507**.
 
+The web app is **[Roughness Lab on Streamlit](https://jfe-rough-sr.streamlit.app/)**. For Community Cloud deployment, use **Python 3.12** and follow the [deployment guide](STREAMLIT_DEPLOYMENT.md).
+
 ## Start the application
 
 From the repository root, run:
@@ -98,7 +100,7 @@ The development installation completed successfully with PySR 2.7.0 and its requ
 
 Extract the release ZIP, then copy the contents of its `JFE_rough_codes` folder into your Git working directory. The archive contains the application, original numerical code and notebooks, input data, figures, screenshots, documentation, citation files, dependency specifications and license.
 
-Local environments, Julia/Python caches, temporary jobs, Git metadata, previous release archives and the supplied reference PDFs are excluded. `.gitignore` prevents local runtime files from being committed. See `CITATION_VERIFICATION.md` for the verified bibliographic metadata. OpenAI Codex is acknowledged for software assistance, while research authorship remains with the original authors.
+Local environments, Julia/Python caches, temporary jobs, Git metadata, previous release archives and the supplied reference PDFs are excluded. `.gitignore` prevents local runtime files from being committed. See `CITATION_VERIFICATION.md` for the verified bibliographic metadata and `STREAMLIT_DEPLOYMENT.md` for publishing the web app.
 
 To rebuild the release archive:
 

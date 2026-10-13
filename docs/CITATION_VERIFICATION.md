@@ -2,7 +2,7 @@
 
 Checked on **2026-10-13 (Asia/Shanghai)**.
 
-| Field | JFE article | JCP companion article |
+| Field | JFE article | Related JCP article |
 |---|---|---|
 | DOI | [10.1115/1.4070838](https://doi.org/10.1115/1.4070838) | [10.1016/j.jcp.2026.115311](https://doi.org/10.1016/j.jcp.2026.115311) |
 | Journal | Journal of Fluids Engineering | Journal of Computational Physics |
@@ -21,4 +21,4 @@ Primary metadata sources:
 
 Downloaded source records are retained in `research/crossref-jfe.json` and `research/crossref-jcp.json` for inspection. Metadata determines the BibTeX entries.
 
-Changes from the original README: replace provisional `pages={1-44}` with the final article identifier, add volume and issue, replace January with the April print issue, and use the verified author spelling **Guowei He**. The JCP entry uses its final volume and article identifier; no issue or online date has been invented.
+The citation files use the final publication metadata: JFE volume 148, issue 4, article 041302, April 2026; JCP volume 567, article 115311, 2026. Author names follow the publisher-deposited records.

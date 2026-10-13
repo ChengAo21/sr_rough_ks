@@ -128,8 +128,8 @@ def overview():
         st.dataframe(pd.DataFrame(rows),hide_index=True,use_container_width=True,column_config={"MARE (%)":st.column_config.NumberColumn(format="%.2f")})
         st.markdown('<div class="note">Each point evaluates the public expression. Live searches in this interface are new experiments; their performance is separate from the published model.</div>',unsafe_allow_html=True)
         st.download_button("Download predictions · CSV",df.to_csv(index=False),"published_model_predictions.csv","text/csv")
-    section("03","A companion study")
-    st.markdown('<div class="paper"><div class="eyebrow" style="color:#91c9bd">RELATED WORK / JCP 2026</div><h3>A physics-embedded symbolic wall model for large-eddy simulation of separated flows</h3><p>From rough-surface drag to separated-flow wall modelling: another route toward interpretable, physics-embedded symbolic models.</p><a href="https://doi.org/10.1016/j.jcp.2026.115311" target="_blank">Read the companion paper ↗</a></div>',unsafe_allow_html=True)
+    section("03","Related publication")
+    st.markdown('<div class="paper"><div class="eyebrow" style="color:#91c9bd">RELATED PUBLICATION / JCP 2026</div><h3>A physics-embedded symbolic wall model for large-eddy simulation of separated flows</h3><p>A related publication on interpretable, physics-embedded symbolic wall modelling for separated-flow large-eddy simulation.</p><a href="https://doi.org/10.1016/j.jcp.2026.115311" target="_blank">Read the related paper ↗</a></div>',unsafe_allow_html=True)
 
 
 def start_search(config):
@@ -408,17 +408,17 @@ def research():
     bib=(ROOT/"CITATION.bib").read_text(encoding="utf-8")
     st.code(bib,language="bibtex")
     st.download_button("Download verified BibTeX",bib,"CITATION.bib","text/plain")
-    st.subheader("Companion publication")
+    st.subheader("Related publication")
     st.write("**A physics-embedded symbolic wall model for large-eddy simulation of separated flows**")
     st.write("Ao Cheng, Xin-Lei Zhang, Zhideng Zhou, Xiaolei Yang, Guowei He · Journal of Computational Physics · 567, 115311 · 2026")
     st.link_button("DOI · 10.1016/j.jcp.2026.115311","https://doi.org/10.1016/j.jcp.2026.115311")
-    st.subheader("PCE learning resources")
-    st.markdown("[UQpy: PCE example gallery](https://uqpyproject.readthedocs.io/en/latest/auto_examples/surrogates/pce/) · [Chaospy: polynomial expansions](https://chaospy.readthedocs.io/en/master/user_guide/polynomial/introduction.html) · [PySR API](https://ai.damtp.cam.ac.uk/pysr/api)")
+    st.subheader("Learning resources")
+    st.markdown("[PySR examples](https://pysr.ai/examples) · [PySR API](https://ai.damtp.cam.ac.uk/pysr/api) · [UQpy PCE gallery](https://uqpyproject.readthedocs.io/en/latest/auto_examples/surrogates/pce/) · [Chaospy polynomial expansions](https://chaospy.readthedocs.io/en/master/user_guide/polynomial/introduction.html)")
     st.write("These resources provide learning examples. This app calls the repository's own PolyChaos implementation; it does not reuse the linked projects' implementations or figures.")
     st.subheader("Reproducibility notes")
     st.markdown("- Data mapping: `pro_ch→Po`, `ESx_ch→Ex`, `sk_ch→Sk`, `kbar_ch→kavg`; the target is `ks/krms_ch`.\n- All non-DNSLC cases form the training set. DNSLC cases remain held out for testing.\n- PCE input order: Po, Ex, Sk, kavg, Sx. The PySR adapter explicitly follows the original script's order: Po, Ex, Sk, Sx, kavg.\n- New figures and animations are drawn from the data and analytical expression, without cropping the paper.\n- Constants retain the public script's precision; recomputed metrics can differ slightly from rounded values in the paper.")
     st.subheader("Contributors & acknowledgments")
-    st.write("Research and original code: Ao Cheng and coauthors. Interactive interface, code integration, documentation and verification assisted by **OpenAI Codex**. Research authorship and scientific conclusions remain with the original authors.")
+    st.write("Research and original code: Ao Cheng and coauthors. The interactive interface, code integration, documentation and verification were assisted by **OpenAI Codex**.")
 
 
 if page.startswith("Overview"): overview()
