@@ -5,6 +5,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 FEATURES = ["Po", "Ex", "Sk", "kavg", "Sx"]
+FACTOR_NAMES = ["h(Po)", "g(Ex)", "f(Sk)", "ψ(kavg)", "φ(Sx)"]
 LABELS = ["Porosity · Po", "Effective slope · Ex", "Skewness · Sk", "Mean height · kavg", "Streamwise slope · Sx"]
 BOUNDS = [[.240, .929], [.158, 1.177], [-1.445, 2.519], [.007, .477], [.028, .750]]
 PAPER_DISTRIBUTIONS = ["U", "N", "N", "U", "N"]
@@ -39,6 +40,14 @@ def factors(x):
 
 def drag_model(x):
     return np.prod(factors(x), axis=1)
+
+
+def pairwise_response(x,axis0,axis1):
+    """The paper's pairwise subfunction product; all other factors contribute 1."""
+    if axis0==axis1 or not {axis0,axis1}.issubset(range(5)):
+        raise ValueError("Choose two distinct features.")
+    values=factors(x)
+    return values[:,axis0]*values[:,axis1]
 
 
 def ishigami(x):

@@ -17,11 +17,12 @@ import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
 
-from roughlab.models import (ROOT, FEATURES, LABELS, BOUNDS, PAPER_DISTRIBUTIONS,
+from roughlab.models import (ROOT, FEATURES, FACTOR_NAMES, LABELS, BOUNDS, PAPER_DISTRIBUTIONS,
     PAPER_PARAMETERS, load_data, published_predictions, drag_model, factors, metrics)
 from roughlab.pce import fit_pce, coefficient_table
 from roughlab.charts import (TEAL, ORANGE, NAVY, COLORS, style, parity, pareto,
     response_surface, pce_animation)
+from roughlab.sr_config import UNARY, BINARY, NESTING, PAPER_TEMPLATE, preset_config, normalize_config
 
 st.set_page_config(page_title="Roughness Lab | JFE 2026",page_icon="〰",layout="wide",initial_sidebar_state="expanded")
 st.markdown("""<style>
@@ -84,7 +85,7 @@ with st.sidebar:
     page = st.radio("Explore",["Overview","Symbolic Lab","PCE Studio","Model Explorer","Research & Cite"],label_visibility="collapsed",key="page")
     st.markdown('<div class="rule"></div>',unsafe_allow_html=True)
     st.markdown("**Cheng et al. · JFE 2026**")
-    caption("From surface geometry to an interpretable drag law.")
+    caption("Feature importance-informed symbolic drag modelling.")
     st.link_button("Read the paper ↗","https://doi.org/10.1115/1.4070838",use_container_width=True)
     st.link_button("GitHub repository ↗","https://github.com/ChengAo21/sr_rough_ks",use_container_width=True)
     st.markdown(" ")
@@ -96,19 +97,19 @@ def overview():
     a,b = st.columns([1.08,1],gap="large")
     with a:
         eyebrow("JOURNAL OF FLUIDS ENGINEERING / 2026")
-        st.markdown("<h1>Rough surfaces.<br>Readable physics.</h1>",unsafe_allow_html=True)
-        st.markdown('<div class="lede">Learn an analytical drag law from surface geometry, then open it up: explore the equation, run symbolic regression, and watch polynomial chaos turn uncertainty into insight.</div>',unsafe_allow_html=True)
+        st.markdown("<h1>Rough-surface<br>drag modelling</h1>",unsafe_allow_html=True)
+        st.markdown('<div class="lede">Explore the equivalent sandgrain roughness model, examine interactions between geometric statistics, and run symbolic regression and PCE sensitivity analysis.</div>',unsafe_allow_html=True)
         st.markdown(" ")
         st.markdown('<span class="tag">Feature importance</span><span class="tag">Symbolic regression</span><span class="tag">Polynomial chaos</span>',unsafe_allow_html=True)
         st.markdown("**Rough-surface drag modelling · From data discovery to physical insight**")
-        caption("Drag to rotate the response surface, recomputed from the published analytical model. Fixed inputs: Po=0.634, kavg=0.067, Sx=0.159.")
+        caption("Drag to rotate g(Ex) × f(Sk), the product of two learned subfunctions. All other subfunctions have unit contribution.")
     with b:
         chart(response_surface(height=420),"hero-surface")
     cols=st.columns(4)
     for col,label,value,helptext in zip(cols,["Training surfaces","Unseen test surfaces","Mean relative error","Model agreement R²"],["96","8","9.60%","0.94"],["Training set used in the paper","Unseen extrapolation test set used in the paper","Paper, Table 4: all 104 cases","Paper, Table 4: all 104 cases"]):
         col.metric(label,value,help=helptext)
-    caption("The summary metrics come from Table 4 of the paper. The predictions below are recomputed from the repository CSV and the public expression with its rounded constants.")
-    section("01","The path to a readable model")
+    caption("Summary metrics are from Table 4 of the paper. Predictions below are evaluated from the repository data and analytical model.")
+    section("01","Feature importance-informed symbolic regression")
     st.image(str(ROOT/"assets/workflow.svg"),use_container_width=True)
     cols=st.columns(3,gap="large")
     for col,num,title,body in zip(cols,["01","02","03"],["Find what matters","Search with structure","Quantify the uncertainty"],["Reduce the geometric statistics to five influential inputs while preserving interpretability.","Constrain symbolic search with a product of univariate factors to obtain a portable analytical expression.","Use the original PolyChaos implementation to fit a surrogate and compute Sobol sensitivity indices."]):
@@ -175,7 +176,8 @@ def search_monitor():
     elif (job/"error.json").exists() or proc.poll() is not None:
         st.error("The search did not complete. Check the process log; PySR initializes its Julia packages on the first run. Python GP is available for immediate exploration.")
     else:
-        if elapsed > job_info["config"]["timeout"]+600:
+        budget=job_info["config"]["timeout"]
+        if budget and elapsed > budget+600:
             cancel_job(job_info)
             st.error("The combined initialization and search time limit was reached. The process has been stopped.")
         else:
@@ -196,28 +198,46 @@ def search_monitor():
 
 def symbolic_lab():
     eyebrow("EXPERIMENT 01 / SYMBOLIC REGRESSION")
-    st.title("Let the equation emerge.")
+    st.title("Symbolic regression of rough-surface drag")
     st.write("Configure a symbolic-regression search on 96 training cases. The eight DNSLC cases remain reserved for independent testing.")
     with st.expander("How the two search engines differ"):
-        st.write("**Python GP**: an included lightweight genetic-programming engine for immediate exploration. It uses the same inputs and operator family, with an optional product template. Exponentials, products, squares and division use numerical protections.\n\n**PySR**: adapted from the original `results/SR_train.py`, using Julia and SymbolicRegression.jl. It supports the original expression template, L1 objective and search parameters. First-time initialization can take longer. Both engines perform a new search rather than replay archived equations.")
-    a,b=st.columns([1,1.8],gap="large")
+        st.write("**PySR** runs the research configuration from `results/SR_train.py`, including the expression template, nested-operator constraints, weighted complexity and L1 objective.\n\n**Python GP** is a lightweight alternative for immediate exploration. It enforces the selected nesting limits and constant-complexity weight, with protected numerical operators. PySR population counts, cycles and execution mode apply to the PySR backend.")
+    a,b=st.columns([1.5,1.8],gap="large")
     with a:
         with st.container(border=True):
             st.subheader("Search controls")
-            with st.form("sr-controls"):
-                engine=st.selectbox("Search engine",["Python GP","PySR"])
+            engine=st.selectbox("Search engine",["PySR","Python GP"],index=0 if importlib.util.find_spec("pysr") else 1,key="sr-engine")
+            profile=st.selectbox("Configuration preset",["Quick run","Paper settings"],key="sr-profile")
+            defaults=preset_config(profile)
+            st.caption("Paper settings are read from the original training script. Quick run reduces the search budget and uses serial execution.")
+            with st.form(f"sr-controls-{profile}"):
                 template=st.checkbox("Product template · Separated variables",value=True)
-                iterations=st.number_input("Generations / iterations",5,1500,25,5)
-                population=st.slider("Population size",24,200,80,8)
-                maxsize=st.slider("Maximum expression size",15,80,45,5)
-                unary=st.multiselect("Unary operators",["tanh","exp","square","cos"],default=["tanh","exp","square","cos"])
-                binary=st.multiselect("Binary operators",["+","-","*","/"],default=["+","-","*","/"])
-                seed=st.number_input("Random seed",0,100000,42)
-                with st.expander("Advanced settings"):
-                    populations=st.number_input("PySR populations",1,90,4)
-                    cycles=st.number_input("PySR cycles per iteration",10,1200,100,10)
-                    timeout=st.number_input("Search time budget (s)",10,1800,60,10)
-                    parsimony=st.number_input("Python GP complexity penalty",0.,1.,.003,.001,format="%.3f")
+                tabs=st.tabs(["Search budget","Expression constraints"])
+                with tabs[0]:
+                    iterations=st.number_input("Generations / iterations",5,100000,defaults["iterations"],5)
+                    population=st.number_input("Population size",10,1000,defaults["population"],10)
+                    populations=st.number_input("PySR populations",1,1000,defaults["populations"],disabled=engine!="PySR")
+                    cycles=st.number_input("PySR cycles per iteration",10,10000,defaults["cycles"],10,disabled=engine!="PySR")
+                    seed=st.number_input("Random seed",0,100000,42)
+                    timeout=st.number_input("Search time limit (s)",0,86400,defaults["timeout"],10,help="0 disables the time limit, as in the original script.")
+                    parallelism=st.selectbox("PySR execution mode",["serial","multithreading"],index=0 if defaults["parallelism"]=="serial" else 1,disabled=engine!="PySR",help="The paper uses multithreading. Serial execution with a fixed seed is reproducible.")
+                with tabs[1]:
+                    unary=st.multiselect("Unary operators",UNARY,default=defaults["unary"])
+                    binary=st.multiselect("Binary operators",BINARY,default=defaults["binary"])
+                    maxsize=st.number_input("Maximum weighted complexity",10,200,defaults["maxsize"],help="PySR maxsize. The original script sets this to 60.")
+                    constant_cost=st.number_input("Constant complexity weight",1,10,defaults["constant_complexity"],help="complexity_of_constants = 3 in the original script. Variables and operators each have weight 1.")
+                    st.markdown("**Nested-operator constraints**")
+                    st.caption("Rows are outer operators; columns are inner operators. 0 forbids nesting, 1 permits it once per branch, and −1 removes that limit.")
+                    inner_ops=list(next(iter(NESTING.values())))
+                    matrix=pd.DataFrame([{ "Outer":outer,**{inner:limits.get(inner,-1) for inner in inner_ops}} for outer,limits in NESTING.items()])
+                    edited=st.data_editor(matrix,hide_index=True,use_container_width=True,disabled=["Outer"],
+                        column_config={"Outer":st.column_config.TextColumn(width="small"),**{inner:st.column_config.NumberColumn(min_value=-1,max_value=10,step=1,required=True,width="small") for inner in inner_ops}},key=f"sr-nesting-{profile}")
+                    nested={row["Outer"]:{inner:int(row[inner]) for inner in inner_ops} for row in edited.to_dict("records")}
+                    st.caption("Limits apply to the selected operators. The default table is the original nested_constraints configuration.")
+                with st.expander("Objective and selection"):
+                    st.caption("L1DistLoss() · precision 64 · PySR model selection: best · variable/operator complexity: 1")
+                    st.code(PAPER_TEMPLATE["combine"],language="text")
+                    parsimony=st.number_input("Python GP complexity penalty",0.,1.,.003,.001,format="%.3f",disabled=engine!="Python GP")
                 submitted=st.form_submit_button("Run symbolic search →",type="primary",use_container_width=True)
             if submitted:
                 existing=st.session_state.get("sr_job")
@@ -228,10 +248,13 @@ def symbolic_lab():
                 elif engine=="PySR" and importlib.util.find_spec("pysr") is None:
                     st.error("PySR is not installed in this environment. Run python -m pip install -r requirements-pysr.txt, then restart the app.")
                 else:
-                    start_search(dict(engine=engine,template=template,iterations=iterations,population=population,
+                    config=dict(profile=profile,engine=engine,template=template,iterations=iterations,population=population,
                         maxsize=maxsize,unary=unary,binary=binary,seed=int(seed),populations=int(populations),
-                        cycles=int(cycles),timeout=int(timeout),parsimony=parsimony))
-            st.caption("Paper configuration: 1500 iterations / 90 populations / population size 80 / 1200 cycles / maxsize 60. Interactive defaults use smaller budgets.")
+                        cycles=int(cycles),timeout=int(timeout),parsimony=parsimony,parallelism=parallelism,
+                        constant_complexity=int(constant_cost),nested_constraints=nested)
+                    try: start_search(normalize_config(config))
+                    except ValueError as exc: st.error(str(exc))
+            st.caption("Paper settings: 1500 iterations / 90 populations / population size 80 / 1200 cycles / maxsize 60 / constant complexity 3.")
     with b:
         st.subheader("Search workspace")
         saved_run=ROOT/"docs/runs/pysr_seed42.json"
@@ -249,7 +272,7 @@ def symbolic_lab():
             chart(pareto(template_df,free_df),"archive-pareto")
         else:
             origin="SAVED VERIFIED RUN" if result.get("saved_demo") else "LIVE RESULT"
-            st.caption(f"{origin} · {result['engine']} · seed {result['config']['seed']} · {result['seconds']:.2f} s")
+            st.caption(f"{origin} · {result['engine']} · {result['config'].get('profile','Saved configuration')} · seed {result['config']['seed']} · {result['seconds']:.2f} s")
             c1,c2,c3=st.columns(3)
             c1.metric("Training MAE",f"{result['train_metrics']['MAE']:.4f}")
             c2.metric("Held-out MARE",f"{result['test_metrics']['MARE (%)']:.2f}%")
@@ -273,6 +296,8 @@ def symbolic_lab():
                 chart(style(fig,350),"live-sr-history")
             with tabs[2]:
                 st.dataframe(pd.DataFrame(result["frontier"]),hide_index=True,use_container_width=True)
+                with st.expander("Effective search configuration"):
+                    st.json(result["config"])
                 st.download_button("Download reproducible run · JSON",json.dumps(result,indent=2,ensure_ascii=False),"symbolic_run.json","application/json")
                 df=data().copy(); df["prediction"]=result["predictions"]
                 st.download_button("Download predictions · CSV",df.to_csv(index=False),"symbolic_predictions.csv","text/csv")
@@ -337,7 +362,7 @@ def pce_studio():
             fig=pce_animation(result)
             # An embedded Plotly document preserves native Play/Pause frame controls.
             components.html(fig.to_html(full_html=False,include_plotlyjs=True,config={"displaylogo":False}),height=555,scrolling=False)
-            caption("Select Play to retain progressively higher degrees of the same fitted expansion. The translucent orange surface is the target function. The animation shows polynomial degree, rather than fluid evolution in time. Other inputs are fixed for the Ex–Sk slice (x1–x2 for Ishigami).")
+            caption("Select Play to retain progressively higher polynomial degrees. For roughness, the plot compares g(Ex) × f(Sk) with its projected PCE approximation; all other subfunctions have unit contribution. The orange surface is the analytical target. The Ishigami plot shows an x1–x2 slice at x3=0.")
         with tabs[1]:
             names=FEATURES if result["model"].dim==5 else ["x1","x2","x3"]
             fig=go.Figure([go.Bar(x=names,y=result["first"],name="First-order Si",marker_color=TEAL),go.Bar(x=names,y=result["total"],name="Total-order STi",marker_color=ORANGE)])
@@ -366,12 +391,12 @@ def pce_studio():
 
 
 def explorer():
-    eyebrow("MODEL EXPLORER / FIVE FACTORS, ONE DRAG LAW")
-    st.title("Pull on a geometric thread.")
+    eyebrow("MODEL EXPLORER / ROUGH-SURFACE DRAG MODEL")
+    st.title("Subfunctions and pairwise interactions")
     st.latex(r"\frac{k_s}{k_{\mathrm{rms}}}=h(P_o)\,g(E_x)\,f(S_k)\,\psi(k_{\mathrm{avg}})\,\phi(S_x)")
     left,right=st.columns([1,2],gap="large")
     with left:
-        st.subheader("A virtual surface")
+        st.subheader("Geometric statistics")
         anchor=[]
         defaults=[.634,.517,.367,.067,.159]
         for label,bound,value in zip(LABELS,BOUNDS,defaults): anchor.append(st.slider(label,float(bound[0]),float(bound[1]),value,.001))
@@ -380,8 +405,10 @@ def explorer():
         axis0=st.selectbox("Surface x-axis",FEATURES,index=1)
         axis1=st.selectbox("Surface y-axis",[x for x in FEATURES if x!=axis0],index=1)
     with right:
-        chart(response_surface(axis0=FEATURES.index(axis0),axis1=FEATURES.index(axis1),anchor=anchor,height=490),"explorer-surface")
-    section("01","The factor anatomy","Each curve is recomputed from the public analytical expression. The dot marks the current slider setting.")
+        first,second=FEATURES.index(axis0),FEATURES.index(axis1)
+        chart(response_surface(axis0=first,axis1=second,selected_inputs=anchor,height=490),"explorer-surface")
+        st.caption(f"{FACTOR_NAMES[first]} × {FACTOR_NAMES[second]}. All other subfunctions have unit contribution. The orange marker shows the selected values of these two inputs.")
+    section("01","Univariate subfunctions","Each curve is evaluated from the analytical model. The dot marks the current slider setting.")
     cols=st.columns(5)
     for j,col in enumerate(cols):
         points=np.tile(anchor,(160,1)); points[:,j]=np.linspace(*BOUNDS[j],160)
@@ -416,7 +443,7 @@ def research():
     st.markdown("[PySR examples](https://pysr.ai/examples) · [PySR API](https://ai.damtp.cam.ac.uk/pysr/api) · [UQpy PCE gallery](https://uqpyproject.readthedocs.io/en/latest/auto_examples/surrogates/pce/) · [Chaospy polynomial expansions](https://chaospy.readthedocs.io/en/master/user_guide/polynomial/introduction.html)")
     st.write("These resources provide learning examples. This app calls the repository's own PolyChaos implementation; it does not reuse the linked projects' implementations or figures.")
     st.subheader("Reproducibility notes")
-    st.markdown("- Data mapping: `pro_ch→Po`, `ESx_ch→Ex`, `sk_ch→Sk`, `kbar_ch→kavg`; the target is `ks/krms_ch`.\n- All non-DNSLC cases form the training set. DNSLC cases remain held out for testing.\n- PCE input order: Po, Ex, Sk, kavg, Sx. The PySR adapter explicitly follows the original script's order: Po, Ex, Sk, Sx, kavg.\n- New figures and animations are drawn from the data and analytical expression, without cropping the paper.\n- Constants retain the public script's precision; recomputed metrics can differ slightly from rounded values in the paper.")
+    st.markdown("- The target is the normalized equivalent sandgrain roughness height, `ks/krms`.\n- All non-DNSLC cases form the training set. DNSLC cases remain held out for testing.\n- Pairwise response surfaces show the product of two subfunctions, with all other subfunctions contributing one.\n- The Paper settings preset reads the template, operators, nesting limits and complexity settings from the original training script.")
     st.subheader("Contributors & acknowledgments")
     st.write("Research and original code: Ao Cheng and coauthors. The interactive interface, code integration, documentation and verification were assisted by **OpenAI Codex**.")
 

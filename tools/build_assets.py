@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from roughlab.models import published_predictions,metrics,BOUNDS,PAPER_DISTRIBUTIONS,PAPER_PARAMETERS
 from roughlab.pce import fit_pce
-from roughlab.charts import surface_grid
+from roughlab.charts import pce_surface_data
 
 
 def main():
@@ -48,24 +48,22 @@ def main():
     axes[1].set(xticks=x,xticklabels=["Po","Ex","Sk","kavg","Sx"],ylabel="Variance fraction",title="SOBOL DECOMPOSITION / TABLE 5 INPUTS")
     axes[1].legend(frameon=False)
     fig.savefig(assets/"pce_results.png",dpi=180);plt.close(fig)
-    xx,yy,points,truth,nx,ny=surface_grid(resolution=44)
-    m=pce["model"]; old=m.coeff.copy(); frames=[]
+    xx,yy,truth,nx,ny,surfaces=pce_surface_data(pce,resolution=44)
+    frames=[]
     zmin,zmax=float(truth.min()),float(truth.max())
-    for degree in range(7):
-        m.coeff=old*(m.multi_index.sum(axis=1)<=degree)
-        zz=m.evaluate(points).reshape(xx.shape)
+    for degree,zz in enumerate(surfaces):
         fig,axes=plt.subplots(1,2,figsize=(10,4.4),layout="constrained")
-        for ax,z,title in [(axes[0],truth,"Published symbolic model"),(axes[1],zz,f"PCE expansion / degree <= {degree}")]:
+        for ax,z,title in [(axes[0],truth,"Subfunction product g(Ex) x f(Sk)"),(axes[1],zz,f"Projected PCE / degree <= {degree}")]:
             im=ax.pcolormesh(xx,yy,z,vmin=zmin,vmax=zmax,cmap="YlGnBu",shading="auto")
             ax.set(xlabel="Effective slope Ex",ylabel="Skewness Sk",title=title)
-        fig.colorbar(im,ax=axes,label="ks / krms",shrink=.8)
+        fig.colorbar(im,ax=axes,label="g(Ex) x f(Sk)",shrink=.8)
         fig.suptitle("A polynomial surrogate, assembled degree by degree",fontsize=14)
         buf=io.BytesIO();fig.savefig(buf,format="png",dpi=100);plt.close(fig);buf.seek(0)
         frames.append(Image.open(buf).convert("RGB"))
-    m.coeff=old
     frames[0].save(assets/"pce_expansion.gif",save_all=True,append_images=frames[1:]+[frames[-1]]*2,duration=850,loop=0)
     report={"model_metrics":metrics(df.target,df.prediction),"groups":rows,
-        "pce":{k:pce[k] for k in ["case","order","samples","seed","distrib","parameters","relative_l2","first","total","seconds"]}}
+        "pce":{k:pce[k] for k in ["case","order","samples","seed","distrib","parameters","relative_l2","first","total","seconds"]},
+        "animation":{"target":"g(Ex) * f(Sk)","other_subfunctions":"unit contribution", "surrogate":"Marginal projection of the full-model PCE, divided by the other factors' mean product."}}
     (ROOT/"docs/verification-results.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2))
 

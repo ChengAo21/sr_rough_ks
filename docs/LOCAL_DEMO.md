@@ -46,23 +46,23 @@ The overview, analytical model explorer, Python GP engine and PCE calculations w
 
 ## Suggested demonstration
 
-1. **Overview:** rotate the Ex–Sk response surface and inspect the newly drawn research workflow and predictions across five data families.
-2. **Symbolic Lab:** start with Python GP, 25 iterations, population size 80, maximum expression size 45 and seed 42. Select **Run symbolic search**, then inspect **Search trajectory** or download the equations and predictions. Select PySR to run the original research backend.
+1. **Overview:** rotate the subfunction product g(Ex) × f(Sk) and inspect the research workflow and model predictions across five data families. The remaining subfunctions contribute one.
+2. **Symbolic Lab:** select **Quick run** for a short experiment, or **Paper settings** to restore the original PySR configuration. The **Expression constraints** tab exposes the unary/binary operators, maximum weighted complexity, constant-complexity weight and nested-operator limits. Both presets use maxsize 60 and constant complexity 3. Select **Run symbolic search**, then inspect **Search trajectory** or download the configuration, equations and predictions. See [SYMBOLIC_REGRESSION.md](SYMBOLIC_REGRESSION.md) for the complete settings.
 3. **PCE Studio:** use the default degree-4 expansion and 800 LHS samples with the uniform preset. Select **Fit PCE & analyze**, then **Play**. Open **Sensitivity** to compare first-order and total-order Sobol indices.
 4. Select **Paper · Table 5 mixed** for the degree-6, 2500-sample paper preset. Changing controls leaves the previous completed result visible and clearly identified until you select **Fit PCE** again.
 5. Select **Ishigami benchmark**, using its default degree-6 expansion, to compare the calculated sensitivity indices with standard reference values.
-6. **Model Explorer:** vary the five geometric statistics and inspect their individual factors and joint response.
+6. **Model Explorer:** vary the five geometric statistics and inspect their univariate subfunctions and pairwise products. Only the selected two subfunctions enter the pairwise surface; the orange marker shows their selected input values.
 
 In a fresh Symbolic Lab session, **View verified PySR demo** opens a previously completed experiment. It is labelled **SAVED VERIFIED RUN** to distinguish it from a new search.
 
 ## Interpreting the results
 
 - Recomputing the public expression on the 104 supplied cases gives **9.5978895%** mean absolute relative error, **30.7923720%** maximum absolute relative error and **0.93515384** R².
-- Python GP is a lightweight, real genetic-programming search using the same five inputs and operator family, with numerical protections. It is an educational backend distinct from PySR and the paper's extensively optimized model.
+- Python GP is a lightweight genetic-programming search using the selected operators, nesting limits and constant-complexity weight, with protected numerical operators. It is an educational backend distinct from PySR.
 - All eight DNSLC cases are excluded from training. Input mappings and the target `ks/krms_ch` are explicit in `roughlab/models.py`.
 - PCE calls the original `PolyChaos` class in `code_files/pce_core.py`. Inputs are assumed independent, and the mixed preset follows Table 5 of the paper.
 - **Validation relative L₂** uses 1200 independent LHS points. Untruncated normal inputs can extend beyond the empirical feature range, so this diagnostic is separate from the paper's surrogate evaluation on its original training cases.
-- The animation retains progressively higher total degrees of one fitted expansion. It does not refit the model at each frame or represent fluid evolution in time.
+- Roughness response surfaces show products of two subfunctions, with all remaining subfunctions contributing one. The animation projects the full-model PCE onto g(Ex) × f(Sk), removes the other factors' mean contribution, and retains progressively higher degrees. Full-model statistics and sensitivity indices are calculated independently of this visualization.
 - Settings, logs, coefficients, sensitivity indices and predictions are available for inspection or export.
 
 ## Verification and saved experiments
@@ -84,7 +84,7 @@ Saved evidence:
 - `runs/tested-versions.json`: Python package versions used during verification.
 - `../assets/screenshots/`: English-language screenshots of the application.
 
-The supplied PySR demonstration uses 25 iterations, 4 populations, population size 80, maximum expression size 45, 100 cycles per iteration and seed 42. Its metrics describe a short exploratory run and are reported separately from the published model's results. See the saved JSON for exact values.
+The supplied PySR demonstration uses the **Quick run** preset: 25 iterations, 4 populations, population size 80, maxsize 60, constant complexity 3, the original nesting table, 100 cycles per iteration and seed 42. Its metrics describe a short exploratory run. The complete effective configuration is included in the saved JSON and process log.
 
 The numerical research implementation is preserved; source comments have been translated to English. The presentation adapter adds continuous limits at `Sk=0` and `kavg=0`. Figures and animations are computed from code and data rather than cropped from the paper.
 

@@ -96,6 +96,11 @@
       0.18693077838257502,
       0.11876857267173599
     ],
-    "seconds": 1.682171800173819
+    "seconds": 1.7594587998464704
+  },
+  "animation": {
+    "target": "g(Ex) * f(Sk)",
+    "other_subfunctions": "unit contribution",
+    "surrogate": "Marginal projection of the full-model PCE, divided by the other factors' mean product."
   }
 }

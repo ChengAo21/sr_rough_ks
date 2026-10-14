@@ -7,10 +7,24 @@ import math
 import time
 import numpy as np
 from .models import FEATURES, load_data, metrics
+from .sr_config import normalize_config
 
 
-def complexity(t):
-    return 1 if t[0] in ("v", "c") else 1 + sum(complexity(a) for a in t[1:])
+def complexity(t,constant_complexity=3):
+    if t[0]=="c": return constant_complexity
+    if t[0]=="v": return 1
+    return 1+sum(complexity(a,constant_complexity) for a in t[1:])
+
+
+def respects_nesting(tree,constraints):
+    """Match SymbolicRegression.jl's maximum nesting along any branch."""
+    def count(node,operator):
+        if node[0] in ("v","c"): return 0
+        return int(node[0]==operator)+max(count(child,operator) for child in node[1:])
+    if tree[0] in ("v","c"): return True
+    for inner,limit in constraints.get(tree[0],{}).items():
+        if max(count(child,inner) for child in tree[1:])>limit: return False
+    return all(respects_nesting(child,constraints) for child in tree[1:])
 
 
 def evaluate(t, x):
@@ -39,6 +53,7 @@ def expression(t):
 
 
 def run_gp(config, progress=None):
+    config=normalize_config(config)
     rng = np.random.default_rng(config["seed"])
     df = load_data()
     train = (df.label != "DNSLC").to_numpy()
@@ -49,6 +64,8 @@ def run_gp(config, progress=None):
     template = config["template"]
     popsize, generations = config["population"], config["iterations"]
     maxsize = config["maxsize"]
+    constant_cost=config["constant_complexity"]
+    constraints=config["nested_constraints"]
     frontier = {}
     history = []
     best = None
@@ -75,8 +92,10 @@ def run_gp(config, progress=None):
 
     def score(individual):
         nonlocal best
-        size = sum(complexity(t) for t in individual)+6 if template else complexity(individual)+4
-        if size > maxsize: return math.inf, None
+        trees=individual if template else (individual,)
+        if not all(respects_nesting(t,constraints) for t in trees): return math.inf,None
+        base_size=sum(complexity(t,constant_cost) for t in trees)
+        if base_size>maxsize: return math.inf,None
         raw = np.prod(np.column_stack([evaluate(t, xt) for t in individual]), axis=1) if template else evaluate(individual, xt)
         if not np.isfinite(raw).all() or np.max(np.abs(raw)) > 1e13: return math.inf, None
         # For a product template, a fitted scale can be absorbed in one subfunction.
@@ -87,10 +106,16 @@ def run_gp(config, progress=None):
         else:
             a = np.column_stack([raw, np.ones(len(raw))])
             scale, offset = np.linalg.lstsq(a, yt, rcond=None)[0]
+        # The product template has fixed outer structure. A fitted scale is
+        # absorbed into one factor; an affine intercept exists only without it.
+        size=base_size+constant_cost+1
+        if not template: size+=constant_cost+1
+        if size>maxsize: return math.inf,None
         pred = scale*raw+offset
         loss = float(np.mean(np.abs(pred-yt)))
         equation = " * ".join(expression(t) for t in individual) if template else expression(individual)
-        record = {"complexity": size, "loss": loss, "equation": f"{scale:.7g} * ({equation}) + {offset:.7g}",
+        rendered=f"{scale:.7g} * ({equation})"+(f" + {offset:.7g}" if not template else "")
+        record = {"complexity": size, "loss": loss, "equation": rendered,
                   "tree": individual, "scale": float(scale), "offset": float(offset)}
         if size not in frontier or loss < frontier[size]["loss"]: frontier[size] = record
         if best is None or loss < best["loss"]: best = record
@@ -118,7 +143,7 @@ def run_gp(config, progress=None):
                 else: child = mutate(parent)
             new.append(child)
         population = new
-        if time.perf_counter()-start > config["timeout"]: break
+        if config["timeout"] and time.perf_counter()-start > config["timeout"]: break
     records, running = [], math.inf
     for size, record in sorted(frontier.items()):
         if record["loss"] < running:
@@ -129,4 +154,6 @@ def run_gp(config, progress=None):
     return {"engine": "Python GP · live search", "equation": best["equation"], "frontier": records,
             "history": history, "predictions": pred.tolist(), "train_metrics": metrics(y[train], pred[train]),
             "test_metrics": metrics(y[~train], pred[~train]), "seconds": time.perf_counter()-start,
-            "config": config, "completed_generations": len(history)}
+            "config": config, "completed_generations": len(history),
+            "structure":{"factors":best["tree"]} if template else {"tree":best["tree"]},
+            "scale":best["scale"],"offset":best["offset"]}

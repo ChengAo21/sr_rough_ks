@@ -3,12 +3,14 @@
   "errors": [],
   "exceptions": [],
   "steps": [
-    "Overview loaded",
-    "Live Python GP searched",
+    "Pairwise-product overview loaded",
+    "Nesting and weighted-complexity controls displayed",
+    "Constrained Python GP searched",
+    "Paper settings restored",
     "PCE fitted",
-    "PCE Play clicked",
+    "Projected pairwise PCE animation played",
     "Sensitivity displayed",
-    "Model explorer loaded",
+    "Model explorer pairwise products loaded",
     "Citations loaded"
   ]
 }

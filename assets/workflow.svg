@@ -8,7 +8,7 @@
 <text x="325" y="173" font-size="19" font-weight="700">02 / Feature importance</text><text x="325" y="199" font-size="14" fill="#647e7d">Po · Ex · Sk · kavg · Sx</text>
 <rect x="643" y="49" width="175" height="80" rx="9" fill="#152c39"/>
 <text x="730" y="82" text-anchor="middle" fill="#f7f7f2" font-family="Georgia,serif" font-size="23">f · g · h · ψ · φ</text>
-<text x="730" y="111" text-anchor="middle" fill="#99d1c6" font-size="13">a readable drag law</text>
+<text x="730" y="111" text-anchor="middle" fill="#99d1c6" font-size="13">symbolic drag model</text>
 <text x="620" y="173" font-size="19" font-weight="700">03 / Symbolic search</text><text x="620" y="199" font-size="14" fill="#647e7d">Structure + data → equation</text>
 <g stroke="#d7e0d3"><path d="M950 128h173M950 38v90"/></g>
 <path d="M958 113q15-5 30-32t34 4 35 3 55-41" fill="none" stroke="#087f8c" stroke-width="3"/>

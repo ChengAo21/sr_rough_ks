@@ -7,7 +7,7 @@ import math
 import numpy as np
 import pandas as pd
 from threadpoolctl import threadpool_limits
-from .models import ROOT, FEATURES, drag_model, ishigami
+from .models import ROOT, FEATURES, drag_model, ishigami, factors
 
 sys.path.insert(0, str(ROOT / "code_files"))
 from pce_core import PolyChaos
@@ -67,3 +67,36 @@ def coefficient_table(result):
     data["coefficient"] = m.coeff
     data["degree"] = m.multi_index.sum(axis=1)
     return data
+
+
+def mean_factor(model,feature,quadrature_order=128):
+    """Mean of one analytical subfunction under its independent input measure."""
+    a,b=model.param[feature]
+    if model.distrib[feature].upper()=="U":
+        nodes,weights=np.polynomial.legendre.leggauss(quadrature_order)
+        values=(b-a)*nodes/2+(a+b)/2
+        weights=weights/2
+    else:
+        nodes,weights=np.polynomial.hermite_e.hermegauss(quadrature_order)
+        values=a+b*nodes
+        weights=weights/np.sqrt(2*np.pi)
+    points=np.zeros((len(nodes),5),dtype=float)
+    points[:,feature]=values
+    return float(np.dot(weights,factors(points)[:,feature]))
+
+
+def pairwise_projection_coefficients(model,axes=(1,2)):
+    """Marginalize the full PCE and remove the mean contribution of other factors.
+
+    Independence and orthogonality eliminate every basis term with a nonzero
+    index in the marginalized dimensions. Dividing by their analytical mean
+    factor product gives a surrogate for the two-factor product itself.
+    """
+    if model.dim!=5 or len(set(axes))!=2 or not set(axes).issubset(range(5)):
+        raise ValueError("Pairwise projection requires two distinct roughness inputs.")
+    other=[i for i in range(5) if i not in axes]
+    scale=np.prod([mean_factor(model,i) for i in other])
+    if not np.isfinite(scale) or abs(scale)<1e-12:
+        raise ValueError("The other subfunctions have a zero or non-finite mean product; choose different input distributions.")
+    keep=np.all(model.multi_index[:,other]==0,axis=1)
+    return model.coeff*keep/scale

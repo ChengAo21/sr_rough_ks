@@ -1,6 +1,6 @@
 <div align="center">
 
-![Roughness Lab — rough surfaces, readable physics](assets/banner.svg)
+![Roughness Lab — symbolic regression for rough-surface drag modelling](assets/banner.svg)
 
 **Feature importance-informed symbolic drag modelling, from discovery to interpretation.**
 
@@ -15,7 +15,7 @@
 
 ## Research overview
 
-Predicting drag across diverse rough surfaces calls for a model that is both accurate and readable. This work identifies influential geometric features, learns a structured analytical expression for equivalent sandgrain roughness, and uses polynomial chaos expansion (PCE) to interpret the model's sensitivity.
+Predicting drag across diverse rough surfaces calls for a model that is both accurate and interpretable. This work identifies influential geometric features, learns a structured analytical expression for equivalent sandgrain roughness, and uses polynomial chaos expansion (PCE) to interpret the model's sensitivity.
 
 **Ao Cheng, Zhideng Zhou, Xiaolei Yang and Guowei He**  
 *A Drag Model for Rough Surfaces Learned Using Feature Importance-Informed Symbolic Regression*  
@@ -53,10 +53,10 @@ Explore the model in your browser, run a symbolic search, and watch a polynomial
 
 | Workspace | What you can explore |
 |:---|:---|
-| **Overview** | Rotate the 3D response surface and inspect predictions across five data families. |
-| **Symbolic Lab** | Set operators, seed, search budget and complexity; inspect equations, process logs, training metrics and held-out predictions. |
+| **Overview** | Rotate the pairwise subfunction product and inspect model predictions across five data families. |
+| **Symbolic Lab** | Restore the paper configuration or set operators, nesting limits, weighted complexity and search budget; inspect equations, logs and held-out predictions. |
 | **PCE Studio** | Configure independent uniform/normal input distributions, polynomial degree and LHS size; fit `PolyChaos`, play the expansion animation and inspect Sobol indices. |
-| **Model Explorer** | Adjust all five features and examine their individual factors, joint response and source data. |
+| **Model Explorer** | Adjust the geometric statistics and examine univariate subfunctions, pairwise products and source data. |
 | **Research & Cite** | Read the publications, copy BibTeX and review the experiment settings. |
 
 ![A symbolic-regression experiment in the Streamlit interface](assets/screenshots/03-symbolic-result.png)
@@ -86,9 +86,9 @@ See the [setup and demonstration guide](docs/LOCAL_DEMO.md) for a walkthrough, o
 
 ### Symbolic regression engines
 
-**Python GP** provides a lightweight genetic-programming search for immediate exploration without Julia. It uses the same inputs and operator family, an optional separated-variable product template and protected numerical operators.
+**Python GP** provides a lightweight genetic-programming search for immediate exploration without Julia. It enforces the selected nested-operator limits and constant-complexity weight, with an optional product template and protected numerical operators.
 
-**PySR** adapts the original `results/SR_train.py`, retaining the five-factor template, float64 precision and L1 objective. To enable live PySR searches locally:
+**PySR** reads the original `results/SR_train.py` configuration, including the five-factor template, nested-operator constraints, weighted complexity, float64 precision and L1 objective. To enable live PySR searches locally:
 
 ```bash
 python -m pip install -r requirements-pysr.txt
@@ -96,19 +96,19 @@ python -m pip install -r requirements-pysr.txt
 
 Then select **PySR** in the app. The first run initializes Julia and SymbolicRegression.jl. Searches run in separate processes, expose their logs and can be cancelled.
 
-The paper configuration uses **1500 iterations, 90 populations, population size 80, 1200 cycles per iteration and maximum size 60**. The interface defaults to a smaller budget for exploration; results from those short searches are labelled separately from the published model.
+Select **Paper settings** to restore **1500 iterations, 90 populations, population size 80, 1200 cycles per iteration, maxsize 60 and constant complexity 3**, with the original multithreading mode and nesting limits. **Quick run** reduces the search budget and uses serial execution while retaining the same expression constraints. See the [symbolic-regression configuration guide](docs/SYMBOLIC_REGRESSION.md) for the exact nesting table and control definitions.
 
 ## Uncertainty and sensitivity
 
 ![The fitted PCE expansion assembled by polynomial degree](assets/pce_expansion.gif)
 
-The left panel shows a slice of the symbolic drag model. The right panel progressively retains higher-degree terms from one fitted PCE. Other inputs are fixed at Po=0.634, kavg=0.067 and Sx=0.159. The animation illustrates polynomial approximation rather than fluid evolution in time.
+The left panel shows **g(Ex) × f(Sk)**, the product of two learned subfunctions. All other subfunctions have unit contribution, following the paper's pairwise visualization. The right panel shows successive degrees of the PCE projected onto this two-factor product. The animation illustrates polynomial approximation rather than fluid evolution in time.
 
 ![PCE validation and Sobol sensitivity indices](assets/pce_results.png)
 
 This experiment uses the paper's **Table 5 mixed distributions**, **degree 6**, **462 basis terms**, **2500 LHS fitting samples** and **seed 42**. Validation uses **1200 independent LHS points**, including distribution tails beyond the empirical feature bounds. Exact settings and results are available in [verification-results.json](docs/verification-results.json).
 
-The app also offers a bounded uniform preset and an **Ishigami benchmark** for checking sensitivity-index convergence. Calculations call the repository's `PolyChaos` implementation; Sobol indices assume independent inputs.
+The app also offers a bounded uniform preset and an **Ishigami benchmark** for checking sensitivity-index convergence. Statistical moments, validation metrics and Sobol indices use the complete model. For the pairwise animation, orthogonality removes terms involving the other inputs and their mean subfunction contribution is divided out. Calculations call the repository's `PolyChaos` implementation; Sobol indices assume independent inputs.
 
 ## Learning resources
 

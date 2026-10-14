@@ -5,6 +5,17 @@ from streamlit.testing.v1 import AppTest
 
 
 class App(unittest.TestCase):
+    def test_paper_controls_restore_source_settings(self):
+        app=AppTest.from_file(str(Path(__file__).resolve().parents[1]/"streamlit_app.py")).run(timeout=30)
+        app.sidebar.radio[0].set_value("Symbolic Lab").run(timeout=30)
+        app.selectbox(key="sr-profile").set_value("Paper settings").run(timeout=30)
+        self.assertEqual(list(app.exception),[])
+        values={widget.label:widget.value for widget in app.number_input}
+        for label,value in {"Generations / iterations":1500,"Population size":80,"PySR populations":90,
+                            "PySR cycles per iteration":1200,"Maximum weighted complexity":60,
+                            "Constant complexity weight":3,"Search time limit (s)":0}.items():
+            self.assertEqual(values[label],value,label)
+
     def test_pages_and_ishigami_fit(self):
         app=AppTest.from_file(str(Path(__file__).resolve().parents[1]/"streamlit_app.py")).run(timeout=30)
         for page in app.sidebar.radio[0].options:

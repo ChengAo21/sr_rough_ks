@@ -9,12 +9,20 @@ import traceback
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from roughlab.models import FEATURES, load_data, metrics
+from roughlab.sr_config import PAPER_TEMPLATE, normalize_config, pysr_options
 
 
 def atomic_json(path, value):
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
-    tmp.replace(path)
+    for attempt in range(10):
+        try:
+            tmp.replace(path)
+            return
+        except PermissionError:
+            # Windows may briefly hold a reader's handle without delete sharing.
+            if attempt==9: raise
+            time.sleep(.02*(attempt+1))
 
 
 def run_pysr(config, job):
@@ -29,25 +37,10 @@ def run_pysr(config, job):
     names = [FEATURES[i] for i in original_order]
     kwargs = {}
     if config["template"]:
-        kwargs["expression_spec"] = TemplateExpressionSpec(
-            expressions=["f", "g", "h", "ksi", "eta"], variable_names=names,
-            combine="f(Po)*g(Ex)*h(Sk)*ksi(Sx)*eta(kavg)")
-    original_constraints = {
-        "exp": {"exp":0,"tanh":0,"square":1,"cos":0},
-        "tanh": {"tanh":0,"exp":0,"square":0,"cos":0},
-        "cos": {"tanh":0,"exp":0,"square":1,"cos":0},
-        "square": {"tanh":0,"exp":1,"square":0,"cos":0},
-    }
-    constraints = {a:{b:n for b,n in original_constraints[a].items() if b in config["unary"]} for a in config["unary"]}
-    model = PySRRegressor(
-        niterations=config["iterations"], populations=config["populations"],
-        population_size=config["population"], maxsize=config["maxsize"],
-        ncycles_per_iteration=config["cycles"], binary_operators=config["binary"],
-        unary_operators=config["unary"], nested_constraints=constraints,
-        elementwise_loss="L1DistLoss()", precision=64, model_selection="best",
-        random_state=config["seed"], deterministic=True, parallelism="serial",
-        timeout_in_seconds=config["timeout"], output_directory=str(job / "pysr"),
-        progress=False, verbosity=1, complexity_of_constants=3, **kwargs)
+        kwargs["expression_spec"] = TemplateExpressionSpec(**PAPER_TEMPLATE)
+    options=pysr_options(config,job/"pysr")
+    print("Effective PySR settings:\n"+json.dumps(options,indent=2),flush=True)
+    model = PySRRegressor(**options, **kwargs)
     start = time.perf_counter()
     atomic_json(job/"progress.json", {"stage":"search", "engine":"PySR", "iterations":config["iterations"]})
     print(f"Starting PySR search: {config['iterations']} iterations, {config['populations']} populations, seed {config['seed']}",flush=True)
@@ -62,7 +55,8 @@ def run_pysr(config, job):
 
 def main(job):
     job = Path(job)
-    config = json.loads((job/"config.json").read_text(encoding="utf-8"))
+    config = normalize_config(json.loads((job/"config.json").read_text(encoding="utf-8")))
+    atomic_json(job/"config.json",config)
     atomic_json(job/"progress.json", {"stage":"initializing", "engine":config["engine"]})
     try:
         if config["engine"] == "PySR":

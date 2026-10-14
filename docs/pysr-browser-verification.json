@@ -2,9 +2,9 @@
   "engine": "PySR",
   "status": "complete",
   "metrics": [
-    "Training MAE1.0506",
-    "Held-out MARE35.37%",
-    "Held-out R²-1.454"
+    "Training MAE1.0641",
+    "Held-out MARE32.55%",
+    "Held-out R²-0.577"
   ],
   "exception": []
 }

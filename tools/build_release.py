@@ -5,7 +5,7 @@ import re
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-ARCHIVE=ROOT/"release/JFE_rough_codes_streamlit_ready.zip"
+ARCHIVE=ROOT/"release/JFE_rough_codes_final.zip"
 EXCLUDED={".runtime", ".venv", "__pycache__", ".git", "release", ".pytest_cache"}
 TEXT_SUFFIXES={".md", ".py", ".cjs", ".js", ".json", ".ipynb", ".csv", ".txt", ".ps1", ".toml", ".svg", ".cff", ".bib"}
 HAN=re.compile("[\u3400-\u4dbf\u4e00-\u9fff]")
@@ -23,7 +23,7 @@ def main():
             raise ValueError(f"Untranslated text: {file.relative_to(ROOT)}")
     required=["README.md", "streamlit_app.py", ".gitignore", ".streamlit/config.toml", "LICENSE",
               "requirements.txt", "requirements-pysr.txt", "start_streamlit.ps1", "CITATION.bib",
-              "CITATION.cff", "docs/LOCAL_DEMO.md", "docs/STREAMLIT_DEPLOYMENT.md", "code_files/pce_core.py", "results/SR_train.py",
+              "CITATION.cff", "docs/LOCAL_DEMO.md", "docs/STREAMLIT_DEPLOYMENT.md", "docs/SYMBOLIC_REGRESSION.md", "roughlab/sr_config.py", "code_files/pce_core.py", "results/SR_train.py",
               "results/csvFiles/rough_surface_statistics.csv", "roughlab/sr_worker.py"]
     names={p.relative_to(ROOT).as_posix() for p in files}
     missing=set(required)-names
