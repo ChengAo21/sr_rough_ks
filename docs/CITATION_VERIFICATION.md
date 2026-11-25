@@ -1,6 +1,6 @@
 # Citation verification
 
-Checked on **2026-10-13 (Asia/Shanghai)**.
+Checked on **2026-11-25 (Asia/Shanghai)**.
 
 | Field | JFE article | Related JCP article |
 |---|---|---|
@@ -19,6 +19,6 @@ Primary metadata sources:
 - [JCP publisher record](https://www.sciencedirect.com/science/article/abs/pii/S0021999126006601).
 - The supplied final JFE PDF identifies volume 148, article 041302, April 2026, and February 5, 2026 online publication.
 
-Downloaded source records are retained in `research/crossref-jfe.json` and `research/crossref-jcp.json` for inspection. Metadata determines the BibTeX entries.
-
 The citation files use the final publication metadata: JFE volume 148, issue 4, article 041302, April 2026; JCP volume 567, article 115311, 2026. Author names follow the publisher-deposited records.
+
+The BibTeX entries retain full author names and journal titles as complete metadata. Author-name formatting follows the chosen bibliography style; journal abbreviations should follow the target journal's requirements. The optional `month` field and a `url` that duplicates the DOI link are omitted. `CITATION.cff` keeps the JFE article as the preferred citation for this repository; the JCP article is a related publication.

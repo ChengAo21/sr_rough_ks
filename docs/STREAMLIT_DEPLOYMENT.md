@@ -19,7 +19,7 @@ Python 3.12 matches the locally verified runtime. Select it under **Advanced set
 ## Publish or update
 
 1. Extract the complete release archive.
-2. Copy the **contents** of its `JFE_rough_codes` folder into the root of the GitHub repository. Keep hidden files such as `.streamlit/config.toml` and `.gitignore`.
+2. Locate the extracted directory containing `README.md` and `streamlit_app.py`, then copy its **contents** into the root of the GitHub repository. Keep hidden files such as `.streamlit/config.toml` and `.gitignore`.
 3. Commit and push the updated files to `main`. The repository root should contain `streamlit_app.py`, `requirements.txt`, `roughlab/`, `code_files/`, `results/`, `assets/` and `docs/`.
 4. In Community Cloud, use the settings above and select **Deploy**. If the app is already deployed from this branch, pushing the update triggers a rebuild or reload.
 5. Open the app URL and confirm that Overview, Symbolic Lab and PCE Studio load. Run a small Python GP search and a PCE fit to verify the application after deployment.

@@ -2,6 +2,8 @@ const {chromium}=require('playwright');
 const path=require('node:path');
 const fs=require('node:fs');
 const root=path.resolve(__dirname,'..');
+const out=path.join(root,'.runtime','pysr-browser-qa');
+fs.mkdirSync(out,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',args:['--enable-unsafe-swiftshader']});
  try {
@@ -16,12 +18,12 @@ const root=path.resolve(__dirname,'..');
  await page.getByRole('button',{name:'Run symbolic search →'}).click();
  await page.getByText('initializing',{exact:false}).first().waitFor({timeout:30000});
  await page.locator('[data-testid="stMain"]').evaluate(e=>e.scrollTop=0);
- await page.screenshot({path:path.join(root,'assets/screenshots/09-pysr-running.png'),fullPage:true});
+ await page.screenshot({path:path.join(out,'09-pysr-running.png'),fullPage:true});
  console.log('PYSR_RUNNING');
  await page.getByText('LIVE RESULT · PySR',{exact:false}).waitFor({timeout:240000});
  await page.locator('[data-testid="stMain"]').evaluate(e=>e.scrollTop=0);
- await page.screenshot({path:path.join(root,'assets/screenshots/10-pysr-result.png'),fullPage:true});
- fs.writeFileSync(path.join(root,'docs/pysr-browser-verification.json'),JSON.stringify({engine:'PySR',status:'complete',metrics:await page.locator('[data-testid="stMetric"]').allTextContents(),exception:await page.locator('[data-testid="stException"]').allTextContents()},null,2));
+ await page.screenshot({path:path.join(out,'10-pysr-result.png'),fullPage:true});
+ fs.writeFileSync(path.join(out,'pysr-browser-verification.json'),JSON.stringify({engine:'PySR',status:'complete',metrics:await page.locator('[data-testid="stMetric"]').allTextContents(),exception:await page.locator('[data-testid="stException"]').allTextContents()},null,2));
  console.log('PYSR_UI_RESULT_VERIFIED');
  } finally { await browser.close(); }
 })().catch(e=>{console.error(e);process.exitCode=1;});

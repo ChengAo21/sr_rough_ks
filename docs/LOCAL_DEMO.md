@@ -74,15 +74,13 @@ python -m unittest discover -s tests -v
 python tools/build_assets.py
 ```
 
-Saved evidence:
+Included records and examples:
 
 - `verification-results.json`: model metrics and the PCE experiment settings.
-- `browser-verification.json`: browser verification of the main interface.
-- `pysr-browser-verification.json`: browser verification of the PySR run.
 - `runs/pysr_seed42.json` and `runs/pysr_process.txt`: a completed short-budget PySR search and its log.
-- `runs/python_gp_seed42.json`: a completed Python GP search.
-- `runs/tested-versions.json`: Python package versions used during verification.
-- `../assets/screenshots/`: English-language screenshots of the application.
+- `../assets/screenshots/03-symbolic-result.png` and `../assets/screenshots/10-pysr-result.png`: the application examples shown or linked in the README.
+
+The optional browser QA scripts write screenshots and verification reports to `.runtime/browser-qa/` and `.runtime/pysr-browser-qa/` at the repository root. These local outputs are excluded from Git and release archives.
 
 The supplied PySR demonstration uses the **Quick run** preset: 25 iterations, 4 populations, population size 80, maxsize 60, constant complexity 3, the original nesting table, 100 cycles per iteration and seed 42. Its metrics describe a short exploratory run. The complete effective configuration is included in the saved JSON and process log.
 
@@ -98,7 +96,7 @@ The development installation completed successfully with PySR 2.7.0 and its requ
 
 ## Publish the repository
 
-Extract the release ZIP, then copy the contents of its `JFE_rough_codes` folder into your Git working directory. The archive contains the application, original numerical code and notebooks, input data, figures, screenshots, documentation, citation files, dependency specifications and license.
+Extract the release ZIP, then locate the directory containing `README.md` and `streamlit_app.py`. Copy that directory's contents, including hidden configuration files, into your Git working directory. The archive contains the application, original numerical code and notebooks, input data, figures, the two README screenshots, documentation, citation files, dependency specifications and license.
 
 Local environments, Julia/Python caches, temporary jobs, Git metadata, previous release archives and the supplied reference PDFs are excluded. `.gitignore` prevents local runtime files from being committed. See `CITATION_VERIFICATION.md` for the verified bibliographic metadata and `STREAMLIT_DEPLOYMENT.md` for publishing the web app.
 

@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const out = path.join(root, 'assets', 'screenshots');
+const out = path.join(root, '.runtime', 'browser-qa');
 fs.mkdirSync(out, { recursive: true });
 (async () => {
   const browser = await chromium.launch({headless:true, executablePath:'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',args:['--enable-unsafe-swiftshader']});
@@ -60,7 +60,7 @@ fs.mkdirSync(out, { recursive: true });
   await page.getByText('Keep the provenance visible.',{exact:true}).waitFor();
   await capture('08-references.png');
   const exceptions=await page.locator('[data-testid="stException"]').allTextContents();
-  fs.writeFileSync(path.join(root,'docs','browser-verification.json'),JSON.stringify({url:'http://127.0.0.1:8507',errors,exceptions,steps:['Pairwise-product overview loaded','Nesting and weighted-complexity controls displayed','Constrained Python GP searched','Paper settings restored','PCE fitted','Projected pairwise PCE animation played','Sensitivity displayed','Model explorer pairwise products loaded','Citations loaded']},null,2));
+  fs.writeFileSync(path.join(out,'browser-verification.json'),JSON.stringify({url:'http://127.0.0.1:8507',errors,exceptions,steps:['Pairwise-product overview loaded','Nesting and weighted-complexity controls displayed','Constrained Python GP searched','Paper settings restored','PCE fitted','Projected pairwise PCE animation played','Sensitivity displayed','Model explorer pairwise products loaded','Citations loaded']},null,2));
   console.log(JSON.stringify({errors,exceptions}));
   } finally { await browser.close(); }
 })().catch(e=>{console.error(e);process.exitCode=1;});

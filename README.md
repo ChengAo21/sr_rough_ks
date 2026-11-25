@@ -9,7 +9,7 @@
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-536e70?style=flat-square)](#run-locally)
 [![License: MIT](https://img.shields.io/badge/License-MIT-e58b53?style=flat-square)](LICENSE)
 
-[Research](#research-overview) · [Model performance](#model-performance) · [Web app](https://jfe-rough-sr.streamlit.app/) · [Local setup](#run-locally) · [PCE & sensitivity](#uncertainty-and-sensitivity) · [Related publication](#related-publication) · [Cite](#cite-this-work)
+[Research](#research-overview) · [Model performance](#model-performance) · [Web app](https://jfe-rough-sr.streamlit.app/) · [Local setup](#run-locally) · [PCE & sensitivity](#uncertainty-and-sensitivity) · [Publications & citation](#publications--citation)
 
 </div>
 
@@ -141,28 +141,9 @@ requirements*.txt               Base dependencies and optional PySR backend
 start_streamlit.ps1              Windows launcher
 ```
 
-## Related publication
+## Publications & citation
 
-**[A physics-embedded symbolic wall model for large-eddy simulation of separated flows](https://doi.org/10.1016/j.jcp.2026.115311)**  
-Ao Cheng, Xin-Lei Zhang, Zhideng Zhou, Xiaolei Yang and Guowei He.  
-*Journal of Computational Physics* **567**, 115311 (2026).
-
-A related publication on interpretable, physics-embedded symbolic wall modelling for separated-flow large-eddy simulation.
-
-```bibtex
-@article{cheng2026wall,
-  title   = {A physics-embedded symbolic wall model for large-eddy simulation of separated flows},
-  author  = {Cheng, Ao and Zhang, Xin-Lei and Zhou, Zhideng and Yang, Xiaolei and He, Guowei},
-  journal = {Journal of Computational Physics},
-  volume  = {567},
-  pages   = {115311},
-  year    = {2026},
-  doi     = {10.1016/j.jcp.2026.115311},
-  url     = {https://doi.org/10.1016/j.jcp.2026.115311}
-}
-```
-
-## Cite this work
+### Primary publication — JFE
 
 If you use this code or model, please cite the JFE article:
 
@@ -175,9 +156,27 @@ If you use this code or model, please cite the JFE article:
   number  = {4},
   pages   = {041302},
   year    = {2026},
-  month   = apr,
-  doi     = {10.1115/1.4070838},
-  url     = {https://doi.org/10.1115/1.4070838}
+  doi     = {10.1115/1.4070838}
+}
+```
+
+### Related publication — JCP
+
+**[A physics-embedded symbolic wall model for large-eddy simulation of separated flows](https://doi.org/10.1016/j.jcp.2026.115311)**  
+Ao Cheng, Xin-Lei Zhang, Zhideng Zhou, Xiaolei Yang and Guowei He.  
+*Journal of Computational Physics* **567**, 115311 (2026).
+
+This related study uses feature importance analysis and physics-embedded symbolic modelling to develop wall models for separated-flow large-eddy simulation.
+
+```bibtex
+@article{cheng2026wall,
+  title   = {A physics-embedded symbolic wall model for large-eddy simulation of separated flows},
+  author  = {Cheng, Ao and Zhang, Xin-Lei and Zhou, Zhideng and Yang, Xiaolei and He, Guowei},
+  journal = {Journal of Computational Physics},
+  volume  = {567},
+  pages   = {115311},
+  year    = {2026},
+  doi     = {10.1016/j.jcp.2026.115311}
 }
 ```
 
